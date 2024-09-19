@@ -1,0 +1,22 @@
+.wrapper {
+    width: 129px;
+    height: 78px;
+    top: 157px;
+    left: 64px;
+    padding: 14px 18px;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    position: absolute;
+
+    .amount {
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .text {
+        font-size: 12px;
+        font-weight: 400;
+        color: #2F2F2F99;
+    }
+}

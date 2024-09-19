@@ -1,0 +1,88 @@
+@use '../../styles/variables.scss' as *;
+
+.typography {
+    margin: 0;
+
+    &.color--primary {
+        color: $primaryDark
+    }
+
+    &.color--secondary {
+        color: $secondaryDark
+    }
+
+    &.color--green {
+        color: $primaryGreen;
+    }
+
+    &.align--left {
+        text-align: left;
+    }
+
+    &.align--center {
+        text-align: center;
+    }
+
+    &.weight--regular {
+        font-weight: 400;
+    }
+
+    &.weight--bold {
+        font-weight: 700;
+    }
+
+    &.noWrap {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+h1 {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 76px;
+    letter-spacing: -0.01em;
+    text-align: left;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: -0.01em;
+    text-align: left;
+}
+
+h3 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.01em;
+    text-align: left;
+
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    text-align: center;
+}
+
+span {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    text-align: left;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    text-align: left;
+}

@@ -1,0 +1,41 @@
+@use '../styles/variables.scss' as *;
+
+.container {
+    width: 436px;
+    margin: 0 auto;
+
+    .form-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            width: 100%;
+            margin-bottom: 32px;
+        }
+
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            .submit-btn {
+                margin-top: 17px;
+            }
+        }
+
+        .auth-helper {
+            margin-top: 16px;
+
+            p {
+                color: $secondaryDark50;
+
+                span {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

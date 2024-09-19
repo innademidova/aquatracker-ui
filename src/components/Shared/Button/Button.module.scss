@@ -1,0 +1,102 @@
+@use '../../styles/variables.scss' as *;
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+    height: 60px;
+    gap: 10px;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    span {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: -0.01em;
+        text-align: center;
+    }
+
+    &--primary {
+        border: none;
+        background-color: $primaryGreen;
+
+        .btn-text {
+            color: $primaryDark;
+        }
+
+        &:hover {
+            background-color: $secondaryGreen;
+        }
+
+        &:disabled {
+            background-color: $disabledBackground;
+
+            .btn-text {
+                color: $disabledText;
+            }
+        }
+    }
+
+    &--secondary {
+        border: none;
+        background-color: $primaryDark;
+
+        &:hover {
+            .btn-text {
+                color: $primaryGreen;
+            }
+
+            path {
+                fill: $primaryGreen;
+                stroke: $primaryGreen;
+            }
+        }
+
+        .btn-text {
+            color: $white;
+        }
+    }
+
+    &--outlined {
+        background-color: transparent;
+        border: 1px solid $primaryDark;
+
+        .btn-text {
+            color: $primaryDark;
+        }
+
+        path {
+            stroke: $primaryDark;
+        }
+
+        &:hover {
+            border: 1px solid $primaryGreen;
+
+            .btn-text {
+                color: $primaryGreen;
+            }
+
+            path {
+                stroke: $primaryGreen;
+            }
+        }
+    }
+
+    &--text {
+        background-color: transparent;
+        border: none;
+        display: flex;
+        gap: 8px;
+    }
+}

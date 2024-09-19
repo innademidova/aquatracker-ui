@@ -1,0 +1,45 @@
+@use '../../../styles/variables.scss' as *;
+
+.container {
+    width: 100%;
+
+    .user-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+
+        .hello {
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 38px;
+            color: $primaryDark;
+
+            span {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .profile-button {
+        width: 157px;
+        height: 56px;
+        padding: 6px 12px;
+        border-radius: 30px;
+        background-color: $primaryDark;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+        font-weight: 700;
+        color: $white;
+
+
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+}

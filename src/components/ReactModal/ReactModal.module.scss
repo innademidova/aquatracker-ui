@@ -1,0 +1,25 @@
+.modal {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(255, 255, 255);
+    overflow: auto;
+    border-radius: 15px;
+    outline: none;
+    padding: 40px;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    .close-button {
+        background: none;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 0;
+        
+        svg {
+            width: 28px;
+            height: 28px;
+        }
+    }
+}

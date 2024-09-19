@@ -1,0 +1,13 @@
+export { default as ShowPassword } from './eye.svg?react';
+export { default as HidePassword } from './eye-off.svg?react';
+export { default as Plus } from './plus.svg?react';
+export { default as Minus } from './minus.svg?react';
+export { default as Statistic } from './statistic.svg?react';
+export { default as ArrowLeft } from './arrow-left.svg?react';
+export { default as ArrowRight } from './arrow-right.svg?react';
+export { default as ArrowDown } from './arrow-down.svg?react';
+export { default as WaterGlass } from './water-glass.svg?react';
+export { default as Edit } from './edit.svg?react';
+export { default as Trash } from './trash.svg?react';
+export { default as Close } from './close.svg?react';
+export { default as Upload } from './upload.svg?react';

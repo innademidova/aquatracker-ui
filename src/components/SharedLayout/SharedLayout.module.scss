@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+
+    .left-section {
+        width: 672px;
+        border-radius: 30px;
+        padding: 32px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+}

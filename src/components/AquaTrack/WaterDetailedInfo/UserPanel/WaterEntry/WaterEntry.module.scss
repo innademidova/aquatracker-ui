@@ -1,0 +1,44 @@
+@use '../../../../styles/variables.scss' as *;
+
+.container {
+    width: 192px;
+    height: 86px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: $white;
+
+    .wrapper {
+        display: flex;
+        gap: 20px;
+
+        .glass {
+            width: 44px;
+            height: 45px;
+        }
+
+        .details {
+            .water-amount {
+                font-size: 15px;
+                font-weight: 700;
+                color: $primaryDark
+            }
+
+            .time {
+                font-size: 12px;
+                font-weight: 400;
+                color: $secondaryDark60;
+            }
+        }
+
+        .icon-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+
+            .icon {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+}

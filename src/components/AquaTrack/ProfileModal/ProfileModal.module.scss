@@ -1,0 +1,67 @@
+@use '../../styles/variables.scss' as *;
+
+.profile-modal {
+
+    .settings-form {
+        display: flex;
+        flex-direction: column;
+
+        .profile-photo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .photo-upload-input {
+                display: none;
+            }
+
+            .photo-upload-label {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
+                .profile-image {
+                    width: 100px;
+                    height: 100px;
+                }
+
+                .upload-btn {
+                    background: none;
+                    display: flex;
+                    gap: 8px;
+
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+
+
+        }
+
+
+
+
+        .formula-details {
+            border: 1px solid $secondaryDark15;
+            border-radius: 15px;
+            padding: 16px;
+
+            p {
+                color: $secondaryDark60;
+            }
+        }
+    }
+
+    .form-parts {
+        display: flex;
+        gap: 40px;
+
+        .form-part {
+            width: 400px;
+        }
+    }
+}
