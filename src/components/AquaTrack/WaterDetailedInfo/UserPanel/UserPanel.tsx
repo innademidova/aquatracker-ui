@@ -1,4 +1,4 @@
-import styles from './ProfilePanel.module.scss';
+import styles from './UserPanel.module.scss';
 import avatar from '../../../../assets/images/user-photo.png';
 import Icon from '../../../Icon/Icon';
 import { useState } from 'react';

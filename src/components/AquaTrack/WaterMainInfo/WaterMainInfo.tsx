@@ -15,7 +15,7 @@ const WaterMainInfo = () => {
         <img className={styles.bottle} alt="bottle" src={bottle} />
         <WaterProgressBar />
         <ReactModal setIsOpen={setIsModalOpen} isOpen={isModalOpen}>
-            <WaterModal />
+            <WaterModal setIsModalOpen={setIsModalOpen} />
         </ReactModal>
         <Button onClick={() => setIsModalOpen(true)} className={styles['add-water-button']} variant="secondary" icon='Plus'>Add Water</Button>
     </div>

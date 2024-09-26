@@ -1,23 +1,26 @@
-import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-interface LoginResponse {
+interface SignInResponse {
     accessToken: string
 }
 
-interface LoginRequest {
+interface SignInRequest {
     email: string,
     password: string
 }
 
 export const aquaTrackerApi = createApi({
-    reducerPath: 'twitPosterApi',
-    baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:5111/api/'}),
+    reducerPath: 'aquaTrackerApi',
+    baseQuery: fetchBaseQuery({
+        baseUrl: 'http://localhost:5111/api/',
+        credentials: 'include',
+    },),
     endpoints: (builder) => ({
-        login: builder.mutation<LoginResponse, LoginRequest>({
-            query: (loginRequest) => ({
-                url: `Auth/login`,
+        login: builder.mutation<SignInResponse, SignInRequest>({
+            query: (singInRequest) => ({
+                url: `Auth/signin`,
                 method: 'POST',
-                body: loginRequest,
+                body: singInRequest,
             }),
         })
     })
@@ -26,4 +29,4 @@ export const aquaTrackerApi = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const {useLoginMutation} = aquaTrackerApi;
+export const { useLoginMutation } = aquaTrackerApi;

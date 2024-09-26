@@ -3,9 +3,6 @@
 .wrapper {
     padding: 32px;
     box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    position: relative;
     
     .bottle {
         display: block;
@@ -15,7 +12,7 @@
     .add-water-button {
         position: absolute;
         width: 178px;
-        top: 612px;
-        left: 462px;
+        bottom: 64px;
+        right: 32px;
     } 
 }

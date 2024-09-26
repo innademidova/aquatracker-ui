@@ -3,7 +3,8 @@
     box-sizing: border-box;
     position: absolute;
     bottom: 180px;
-    left: 188px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 295px;
     height: 106px;
     padding: 20px;

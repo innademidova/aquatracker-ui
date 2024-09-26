@@ -5,6 +5,16 @@
     flex-direction: column;
     max-width: 438px;
 
+    form {
+        width: 438px;
+
+        .form-items {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+    }
+
     span {
         color: $primaryDark;
         font-weight: 700;
@@ -20,12 +30,6 @@
     .subtitle {
         margin-bottom: 20px;
         font-size: 18px;
-    }
-
-    .label {
-        font-size: 16px;
-        font-weight: 400;
-        color: $secondaryDark;
     }
 
     .add-water-buttons {
@@ -55,13 +59,6 @@
             border-radius: 30px;
             width: 92px;
         }
-    }
-
-    .input {
-        width: 438px;
-        padding: 16px;
-        margin-top: 8px;
-        margin-bottom: 24px;
     }
 
     .save-button {

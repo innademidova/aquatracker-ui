@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux';
 
 import Typography from 'components/Shared/Typography/Typography';
 import { useLoginMutation } from '@/app/api';
-import { setToken } from '@/features/auth/authSlice';
 import Input from 'components/Shared/Input/Input';
 import Button from 'components/Shared/Button/Button';
 
@@ -38,8 +37,8 @@ const SignInForm: React.FC = () => {
         try {
             const result = await loginUser(data).unwrap();
             if (result.accessToken) {
-                dispatch(setToken(result.accessToken));
-                navigate('/water-tracker');
+                // dispatch(setToken(result.accessToken));
+                navigate('/tracker');
             } else {
                 setLoginError('Login or password is incorrect');
             }

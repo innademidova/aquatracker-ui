@@ -8,8 +8,9 @@
         border-radius: 30px;
         padding: 32px;
         box-sizing: border-box;
+        position: relative;
         display: flex;
         align-items: center;
-        position: relative;
+        justify-content: center;
     }
 }

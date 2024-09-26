@@ -13,7 +13,7 @@ const SharedLayout: FC<SharedLayoutProps> = ({ leftSection, rightSection }) => {
     const location = useLocation();
 
     const getBackgroundColor = () => {
-        if (location.pathname === "/aquatrack") {
+        if (location.pathname === "/tracker") {
             return "#9BE1A0";
         } else {
             return "#F0EFF4";
