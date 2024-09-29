@@ -93,10 +93,37 @@
         }
     }
 
-    &--text {
+    &--simple {
         background-color: transparent;
         border: none;
         display: flex;
+        justify-content: flex-start;
         gap: 8px;
+        height: fit-content;
+        padding: 0;
+
+        .btn-text {
+            font-size: 15px;
+            color: $primaryDark40;
+        }
+
+        svg {
+            width: 16px;
+            height: 16px;
+
+            path {
+                stroke: $primaryDark40;
+            }
+        }
+
+        &:hover {
+            .btn-text {
+                color: $primaryDark;
+            }
+
+            path {
+                stroke: $primaryDark;
+            }
+        }
     }
 }

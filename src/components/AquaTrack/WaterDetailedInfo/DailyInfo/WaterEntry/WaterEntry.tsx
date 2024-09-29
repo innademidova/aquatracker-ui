@@ -1,8 +1,11 @@
 import { FC } from 'react';
-import Icon from '../../../../Icon/Icon';
-import styles from './WaterEntry.module.scss';
+
 import { getCurrentTime } from '@/utils/timeHelper';
 import { useDeleteWaterEntryMutation, useGetDaiLyWaterConsumptionQuery } from '@/app/waterApi';
+import Button from 'components/Shared/Button/Button';
+import Icon from '../../../../Icon/Icon';
+
+import styles from './WaterEntry.module.scss';
 
 interface WaterEntryProps {
     id: number;
@@ -30,10 +33,8 @@ const WaterEntry: FC<WaterEntryProps> = ({ amount, id, time }) => {
                 <div className={styles.time}>{getCurrentTime()}</div>
             </div>
             <div className={styles['icon-buttons']}>
-                <Icon className={styles.icon} glyph='Edit' />
-                <button onClick={deleteWaterEntryHandler}>
-                    <Icon className={styles.icon} glyph='Trash' />
-                </button>
+                <Button variant='simple' icon="Edit" />
+                <Button variant='simple' icon="Trash" onClick={deleteWaterEntryHandler} />
             </div>
         </div>
     </div>

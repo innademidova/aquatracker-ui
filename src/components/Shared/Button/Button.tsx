@@ -4,7 +4,7 @@ import Icon from "../../Icon/Icon";
 import * as Icons from '../../../assets/icons';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    variant: 'primary' | 'secondary' | 'outlined' | 'text' | 'danger';
+    variant: 'primary' | 'secondary' | 'outlined' | 'simple' | 'danger';
     children?: ReactNode;
     className?: string;
     icon?: keyof typeof Icons;

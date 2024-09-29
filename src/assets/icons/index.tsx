@@ -11,3 +11,5 @@ export { default as Edit } from './edit.svg?react';
 export { default as Trash } from './trash.svg?react';
 export { default as Close } from './close.svg?react';
 export { default as Upload } from './upload.svg?react';
+export { default as LogOut } from './log-out.svg?react';
+export { default as Settings } from './settings.svg?react';

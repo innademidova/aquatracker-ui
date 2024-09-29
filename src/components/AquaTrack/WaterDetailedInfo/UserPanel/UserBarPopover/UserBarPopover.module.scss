@@ -1,0 +1,11 @@
+@use '../../../../styles/variables.scss' as *;
+
+.popover-wrapper {
+    position: absolute;
+    background-color: $white;
+    border-radius: 15px;
+    padding: 14px 20px;
+    top: 96px;
+    right: 32px;
+    width: 157px;
+}

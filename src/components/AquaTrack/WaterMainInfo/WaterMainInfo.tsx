@@ -8,17 +8,21 @@ import ReactModal from "../../ReactModal/ReactModal";
 import WaterModal from "../WaterModal/WaterModal";
 
 const WaterMainInfo = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    return <div className={styles['wrapper']}>
-        <WaterDailyNorma />
-        <img className={styles.bottle} alt="bottle" src={bottle} />
-        <WaterProgressBar />
-        <ReactModal setIsOpen={setIsModalOpen} isOpen={isModalOpen}>
-            <WaterModal setIsModalOpen={setIsModalOpen} />
-        </ReactModal>
-        <Button onClick={() => setIsModalOpen(true)} className={styles['add-water-button']} variant="secondary" icon='Plus'>Add Water</Button>
+  return (
+    <div className={styles['wrapper']}>
+      <WaterDailyNorma />
+      <img className={styles.bottle} alt="bottle" src={bottle} />
+      <WaterProgressBar />
+      <ReactModal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
+        <WaterModal onSubmitSuccess={() => setIsModalOpen(false)} />
+      </ReactModal>
+      <Button onClick={() => setIsModalOpen(true)} className={styles['add-water-button']} variant="secondary" icon="Plus">
+        Add Water
+      </Button>
     </div>
-}
+  );
+};
 
-export default WaterMainInfo; 
+export default WaterMainInfo;

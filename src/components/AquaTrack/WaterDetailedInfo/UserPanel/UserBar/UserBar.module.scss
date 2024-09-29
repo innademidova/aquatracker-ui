@@ -1,0 +1,23 @@
+@use '../../../../styles/variables.scss' as *;
+
+.profile-button {
+    width: 157px;
+    height: 56px;
+    padding: 6px 12px;
+    border-radius: 30px;
+    background-color: $primaryDark;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: $white;
+    position: relative;
+
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+}

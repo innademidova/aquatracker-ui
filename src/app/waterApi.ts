@@ -2,11 +2,14 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 interface AddWaterEntryRequest {
     amount: number,
+    date: string;
+    time: string;
 }
 
 interface DaiLyWaterConsumptionResponse {
     id: number;
     amount: number;
+    date: string;
     time: string;
     userId: number;
 }

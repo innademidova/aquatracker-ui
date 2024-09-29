@@ -1,6 +1,7 @@
 import Icon from 'components/Icon/Icon';
-import styles from './DailyInfo.module.scss';
 import WaterList from './WaterList/WaterList';
+
+import styles from './DailyInfo.module.scss';
 
 const DailyInfo = () => {
     return <div className={styles['day-overview-wrapper']}>

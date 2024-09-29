@@ -1,25 +1,17 @@
 import styles from './UserPanel.module.scss';
-import avatar from '../../../../assets/images/user-photo.png';
-import Icon from '../../../Icon/Icon';
-import { useState } from 'react';
-import ReactModal from '../../../ReactModal/ReactModal';
-import ProfileModal from '../../ProfileModal/ProfileModal';
+import UserBar from './UserBar/UserBar';
+import { useGetCurrentUserQuery } from '@/app/userApi';
+import { getCurrentUserName } from '@/utils/textFormatter';
 
 const UserPanel = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const { data: currentUser } = useGetCurrentUserQuery();
 
     return <div className={styles.container}>
         <div className={styles['user-header']}>
-            <div className={styles.hello}>Hello, <span> Nadia!</span></div>
-            <div onClick={() => setIsOpen(true)} className={styles['profile-button']}>
-                <span>Nadia</span>
-                <img alt="avatar" src={avatar} />
-                <Icon className={styles.icon} glyph='ArrowDown' />
-            </div>
+            <div className={styles.hello}>Hello, <span> {currentUser && getCurrentUserName(currentUser)}!</span></div>
+            <UserBar />
         </div>
-        <ReactModal isOpen={isOpen} setIsOpen={setIsOpen}>
-            <ProfileModal/>
-        </ReactModal>
+
     </div>
 }
 
