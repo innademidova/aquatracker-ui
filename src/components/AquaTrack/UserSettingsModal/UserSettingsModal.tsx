@@ -19,6 +19,10 @@ interface UserSettingsFormData {
     activeTime?: number;
 }
 
+interface UserSettingsModalProps {
+    onSubmitSuccess: () => void;
+}
+
 const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required').min(2, 'Name must be at least 2 characters'),
     email: Yup.string().required('Email is required').email('Email is invalid'),
@@ -27,7 +31,7 @@ const validationSchema = Yup.object().shape({
     dailyWaterGoal: Yup.number().positive('Water input must be positive').required('required')
 });
 
-const UserSettingsModal: React.FC = () => {
+const UserSettingsModal: React.FC<UserSettingsModalProps> = ({ onSubmitSuccess }) => {
     const {
         register,
         handleSubmit,
@@ -43,6 +47,7 @@ const UserSettingsModal: React.FC = () => {
         console.log("data", data)
         try {
             await updateProfile(data).unwrap();
+            onSubmitSuccess();
         }
         catch (err) {
             console.log(err);
@@ -82,7 +87,7 @@ const UserSettingsModal: React.FC = () => {
                         </label>
                         <label htmlFor="gender-man">
                             <input
-                            checked={currentUser?.gender == 'Man'}
+                                checked={currentUser?.gender == 'Man'}
                                 type="radio"
                                 id="gender-man"
                                 value="Man"

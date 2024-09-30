@@ -14,39 +14,6 @@
             line-height: 32px;
             color: $primaryDark;
         }
-
-        .add-water {
-            display: flex;
-            gap: 10px;
-            justify-content: space-between;
-            align-items: center;
-
-            .add-water-button {
-                padding: 0;
-                width: 30px;
-                height: 30px;
-                background-color: $primaryGreen;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                svg {
-                    width: 15px;
-                    height: 15px;
-
-                    path {
-                        stroke: $primaryDark;
-                    }
-                }
-            }
-
-            .text {
-                font-size: 16px;
-                font-weight: 700;
-                color: $primaryDark;
-            }
-        }
     }
 
     .water-entries {

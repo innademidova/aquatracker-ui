@@ -33,8 +33,8 @@ const WaterEntry: FC<WaterEntryProps> = ({ amount, id, time }) => {
                 <div className={styles.time}>{getCurrentTime()}</div>
             </div>
             <div className={styles['icon-buttons']}>
-                <Button variant='simple' icon="Edit" />
-                <Button variant='simple' icon="Trash" onClick={deleteWaterEntryHandler} />
+                <Button variant='icon' icon="Edit" />
+                <Button variant='icon' icon="Trash" onClick={deleteWaterEntryHandler} />
             </div>
         </div>
     </div>

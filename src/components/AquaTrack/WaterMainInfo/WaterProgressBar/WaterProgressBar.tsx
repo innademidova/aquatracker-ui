@@ -8,7 +8,7 @@ const WaterProgressBar = () => {
   const { data: dailyWaterConsumption } = useGetDaiLyWaterConsumptionQuery();
 
   const amount = dailyWaterConsumption?.reduce((prev, current) => prev + current.amount, 0);
-  const percentage = currentUser && amount ? getPersentOfConsumedWater(currentUser.dailyWaterGoal, amount) : 0;
+  const percentage = currentUser && amount ? getPersentOfConsumedWater(currentUser.dailyWaterGoal, amount) : '';
 
   return (
     <div className={styles['progress-container']}>
@@ -16,13 +16,13 @@ const WaterProgressBar = () => {
       <div className={styles['progress-bar']}>
         <div className={styles['progress-fill']} style={{ width: `${percentage}%` }}></div>
         <div className={styles['progress-indicator']} style={{ left: `${percentage}%` }}>
-          <span className={styles['progress-value']}>{percentage}%</span>
+          {percentage && <span className={styles['progress-value']}>{percentage}%</span>}
         </div>
       </div>
-      <div className={styles['progress-labels']}>
+      {!percentage && <div className={styles['progress-labels']}>
         <span>0%</span>
         <span>100%</span>
-      </div>
+      </div>}
     </div>
   );
 };

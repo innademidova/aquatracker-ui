@@ -5,14 +5,14 @@ import { useState } from "react";
 import styles from './UserBarPopover.module.scss';
 
 const UserBarPopover = () => {
-    const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return <div className={styles['popover-wrapper']}>
-        <Button variant="simple" icon="Settings" onClick={() => setIsSettingsOpen(() => !isSettingsOpen)}>Settings</Button>
+        <Button variant="simple" icon="Settings" onClick={() => setIsModalOpen(() => !isModalOpen)}>Settings</Button>
         <Button variant="simple" icon="LogOut">Log out</Button>
-        {isSettingsOpen && <ReactModal isOpen={isSettingsOpen} setIsOpen={setIsSettingsOpen}>
-            <UserSettingsModal />
-        </ReactModal>}
+        <ReactModal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
+            <UserSettingsModal onSubmitSuccess={() => setIsModalOpen(false)} />
+        </ReactModal>
     </div>
 }
 

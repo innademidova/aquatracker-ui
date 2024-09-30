@@ -9,14 +9,16 @@
     width: 100%;
     height: 60px;
     gap: 10px;
+    border: none;
+    padding: 0;
 
     &:disabled {
         cursor: not-allowed;
     }
 
     svg {
-        width: 24px;
-        height: 24px;
+        width: 16px;
+        height: 16px;
     }
 
     span {
@@ -28,7 +30,6 @@
     }
 
     &--primary {
-        border: none;
         background-color: $primaryGreen;
 
         .btn-text {
@@ -49,8 +50,12 @@
     }
 
     &--secondary {
-        border: none;
         background-color: $primaryDark;
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
 
         &:hover {
             .btn-text {
@@ -95,12 +100,9 @@
 
     &--simple {
         background-color: transparent;
-        border: none;
-        display: flex;
         justify-content: flex-start;
         gap: 8px;
         height: fit-content;
-        padding: 0;
 
         .btn-text {
             font-size: 15px;
@@ -108,9 +110,6 @@
         }
 
         svg {
-            width: 16px;
-            height: 16px;
-
             path {
                 stroke: $primaryDark40;
             }
@@ -125,5 +124,40 @@
                 stroke: $primaryDark;
             }
         }
+    }
+
+    &--icon {
+        background-color: transparent;
+        height: fit-content;
+    }
+
+    &--iconWithText {
+
+        .btn-text {
+            color: $primaryDark;
+        }
+
+        svg {
+            padding: 6px;
+            width: 30px;
+            height: 30px;
+            background-color: $primaryGreen;
+            border-radius: 50%;
+
+            path {
+                stroke: $primaryDark;
+            }
+        }
+
+        &:hover {
+            svg {
+                background-color: $primaryDark;
+
+                path {
+                    stroke: $white
+                }
+            }
+        }
+
     }
 }
