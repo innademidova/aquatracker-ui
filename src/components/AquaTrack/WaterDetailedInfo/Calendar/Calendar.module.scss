@@ -34,8 +34,6 @@ button {
             .navigation-button {
                 display: flex;
                 padding: 0;
-
-                .icon {}
             }
 
             .current-month {
@@ -64,6 +62,7 @@ button {
         display: flex;
         flex-direction: column;
         gap: 4px;
+        cursor: pointer;
 
         .day {
             width: 38px;

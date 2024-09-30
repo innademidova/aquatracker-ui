@@ -6,8 +6,9 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useAddWaterMutation, useGetDaiLyWaterConsumptionQuery } from '@/app/waterApi';
-import { getCurrentTime } from '@/utils/timeHelper';
-import dayjs from 'dayjs';
+import { getCurrentTime } from '@/utils/dateHelper';
+import { useAppSelector } from '@/app/hooks';
+import { selectedDate } from '@/features/date/dateSlice';
 
 interface WaterModalProps {
     isEditing?: boolean;
@@ -25,19 +26,19 @@ const validationSchema = Yup.object().shape({
 });
 
 const WaterModal: React.FC<WaterModalProps> = ({ isEditing = false, onSubmitSuccess }) => {
+    const date = useAppSelector(selectedDate);
     const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
         resolver: yupResolver(validationSchema),
     });
     const [amount, setAmount] = useState(50);
     const [addWater] = useAddWaterMutation();
-    const { refetch } = useGetDaiLyWaterConsumptionQuery();
+    const { refetch } = useGetDaiLyWaterConsumptionQuery(date);
 
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         try {
-            console.log('data', data);
             await addWater({
                 amount: data.amount,
-                date: dayjs().format('YYYY-MM-DD'),
+                date,
                 time: data.time
             }).unwrap();
             refetch();

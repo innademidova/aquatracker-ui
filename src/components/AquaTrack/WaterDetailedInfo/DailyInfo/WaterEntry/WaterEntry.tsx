@@ -1,11 +1,13 @@
 import { FC } from 'react';
 
-import { getCurrentTime } from '@/utils/timeHelper';
+import { getCurrentTime } from '@/utils/dateHelper';
 import { useDeleteWaterEntryMutation, useGetDaiLyWaterConsumptionQuery } from '@/app/waterApi';
 import Button from 'components/Shared/Button/Button';
 import Icon from '../../../../Icon/Icon';
 
 import styles from './WaterEntry.module.scss';
+import { selectedDate } from '@/features/date/dateSlice';
+import { useAppSelector } from '@/app/hooks';
 
 interface WaterEntryProps {
     id: number;
@@ -14,8 +16,9 @@ interface WaterEntryProps {
 }
 
 const WaterEntry: FC<WaterEntryProps> = ({ amount, id, time }) => {
+    const date = useAppSelector(selectedDate);
     const [deleteWaterEntry] = useDeleteWaterEntryMutation();
-    const { refetch } = useGetDaiLyWaterConsumptionQuery();
+    const { refetch } = useGetDaiLyWaterConsumptionQuery(date);
     const deleteWaterEntryHandler = async () => {
         try {
             await deleteWaterEntry(id).unwrap();

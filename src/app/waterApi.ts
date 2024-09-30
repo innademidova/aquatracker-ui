@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { Dayjs } from 'dayjs';
 
 interface AddWaterEntryRequest {
     amount: number,
@@ -35,8 +36,8 @@ export const waterApi = createApi({
                 body: id,
             }),
         }),
-        getDaiLyWaterConsumption: builder.query<DaiLyWaterConsumptionResponse[], void>({
-            query: () => ({ url: 'Water/daily-consumption' }),
+        getDaiLyWaterConsumption: builder.query<DaiLyWaterConsumptionResponse[], string>({
+            query: (date: string) => ({ url: `Water/daily-consumption?date=${date}` }),
         }),
     }),
 });

@@ -2,8 +2,11 @@ import { useState } from 'react';
 import dayjs from 'dayjs';
 import Icon from '../../../Icon/Icon';
 import styles from './Calendar.module.scss';
+import { useAppDispatch } from '@/app/hooks';
+import { setSelectedDate } from '@/features/date/dateSlice';
 
 const Calendar = () => {
+    const dispatch = useAppDispatch();
     const today = dayjs();
     const [currentDate, setCurrentDate] = useState(today);
 
@@ -42,15 +45,13 @@ const Calendar = () => {
                             <Icon className={styles['icon']} glyph={'ArrowRight'} />
                         </button>
                     </div>
-                    <button className={styles['statistic-button']}>
-                        <Icon className={styles['icon']} glyph={'Statistic'} />
-                    </button>
                 </div>
             </div>
             <div className={styles['calendar-grid']}>
                 {renderDays().map((day) => {
+                    const fullDate = currentDate.date(day).format('YYYY-MM-DD');
                     return (
-                        <div className={styles['day-wrapper']} key={day}>
+                        <div onClick={() => dispatch(setSelectedDate(fullDate))} className={styles['day-wrapper']} key={day}>
                             <div className={styles.day}>{day}</div>
                             <div className={styles['day-progress']}>100%</div>
                         </div>
