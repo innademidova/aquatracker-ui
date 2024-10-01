@@ -4,10 +4,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
 import { useLoginMutation } from '@/app/api';
-import { setToken } from '@/features/auth/authSlice';
 import Input from 'components/Shared/Input/Input';
 import Typography from 'components/Shared/Typography/Typography';
 import Button from 'components/Shared/Button/Button';
@@ -34,7 +32,6 @@ const SignUpForm: React.FC = () => {
     });
     const [loginUser, { isLoading }] = useLoginMutation();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const [registerError, setRegisterError] = useState<string | null>(null);
     const [showPassword, setShowPassword] = useState(false);
     const [showRepeatPassword, setShowRepeatPassword] = useState(false);
@@ -43,7 +40,6 @@ const SignUpForm: React.FC = () => {
         try {
             const result = await loginUser(data).unwrap();
             if (result.accessToken) {
-                dispatch(setToken(result.accessToken));
                 navigate('/');
             } else {
                 setRegisterError('Login or password is incorrect');

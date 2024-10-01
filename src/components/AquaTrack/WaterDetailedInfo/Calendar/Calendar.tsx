@@ -4,11 +4,14 @@ import Icon from '../../../Icon/Icon';
 import styles from './Calendar.module.scss';
 import { useAppDispatch } from '@/app/hooks';
 import { setSelectedDate } from '@/features/date/dateSlice';
+import { useGetCurrentUserQuery } from '@/app/userApi';
 
 const Calendar = () => {
     const dispatch = useAppDispatch();
     const today = dayjs();
     const [currentDate, setCurrentDate] = useState(today);
+    const { data: currentUser } = useGetCurrentUserQuery();
+    
 
     const daysInMonth = currentDate.daysInMonth();
 

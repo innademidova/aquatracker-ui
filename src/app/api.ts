@@ -1,5 +1,6 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi } from '@reduxjs/toolkit/query/react';
 import { BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/query';
+import { baseQuery } from './baseApi';
 
 interface SignInResponse {
     accessToken: string
@@ -10,11 +11,6 @@ interface SignInRequest {
     password: string
 }
 
-
-const baseQuery = fetchBaseQuery({
-    baseUrl: 'http://localhost:5111/api/',
-    credentials: 'include',
-});
 
 const baseQueryWithReauth: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError> = async (
     args,
@@ -44,8 +40,8 @@ const baseQueryWithReauth: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQue
     return result;
 };
 
-export const aquaTrackerApi = createApi({
-    reducerPath: 'aquaTrackerApi',
+export const authApi = createApi({
+    reducerPath: 'authApi',
     baseQuery: baseQueryWithReauth,
     endpoints: (builder) => ({
         login: builder.mutation<SignInResponse, SignInRequest>({
@@ -64,4 +60,4 @@ export const aquaTrackerApi = createApi({
     }),
 });
 
-export const { useLoginMutation, useRefreshMutation } = aquaTrackerApi;
+export const { useLoginMutation, useRefreshMutation } = authApi;

@@ -1,5 +1,5 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Dayjs } from 'dayjs';
+import { createApi } from '@reduxjs/toolkit/query/react'
+import { baseQuery } from './baseApi';
 
 interface AddWaterEntryRequest {
     amount: number,
@@ -17,10 +17,7 @@ interface DaiLyWaterConsumptionResponse {
 
 export const waterApi = createApi({
     reducerPath: 'waterApi',
-    baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:5111/api/',
-        credentials: 'include',
-    }),
+    baseQuery,
     endpoints: (builder) => ({
         addWater: builder.mutation<void, AddWaterEntryRequest>({
             query: (addWaterEntryRequest) => ({

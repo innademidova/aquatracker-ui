@@ -1,4 +1,5 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi } from '@reduxjs/toolkit/query/react';
+import { baseQuery } from './baseApi';
 
 export interface GetCurrentUserResponse {
     id: number;
@@ -21,18 +22,7 @@ interface UpdateUserRequest {
 
 export const userApi = createApi({
     reducerPath: 'userApi',
-    baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:5111/api/',
-        credentials: 'include',
-        responseHandler: async (response) => {
-            const contentType = response.headers.get('content-type');
-            if (contentType && contentType.includes('application/json')) {
-                return response.json();
-            } else {
-                return response.text();
-            }
-        },
-    }),
+    baseQuery,
     endpoints: (builder) => ({
         getCurrentUser: builder.query<GetCurrentUserResponse, void>({
             query: () => ({ url: 'Users/me' }),
