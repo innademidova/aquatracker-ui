@@ -52,7 +52,7 @@ const SignUpForm: React.FC = () => {
     return (
         <div className={styles['container']}>
             <div className={styles['form-wrapper']}>
-                <Typography component='h2'>Sign Up</Typography>
+                <Typography component='h2' size={36} lineHeight={38} weight='bold'>Sign Up</Typography>
                 <form onSubmit={handleSubmit(onSubmit)} noValidate>
                     <div className={styles['form-group']}>
                         <Input
@@ -110,9 +110,9 @@ const SignUpForm: React.FC = () => {
                     </Button>
                 </form>
                 <div className={styles['auth-helper']}>
-                    <Typography component='p'>{`Already have an account? `}
+                    <Typography component='p' size={16} color='secondary50'>{`Already have an account? `}
                         <a onClick={() => navigate('/signin')}>
-                            <Typography component='span'>Sign In</Typography>
+                            <Typography component='span' size={16} color='secondary' weight='bold'>Sign In</Typography>
                         </a>
                     </Typography>
                 </div>

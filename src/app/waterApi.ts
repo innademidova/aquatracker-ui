@@ -7,12 +7,17 @@ interface AddWaterEntryRequest {
     time: string;
 }
 
-interface DaiLyWaterConsumptionResponse {
+export interface WaterConsumptionResponse {
     id: number;
     amount: number;
     date: string;
     time: string;
     userId: number;
+}
+
+interface GetMonthlyWaterConsumptionRequest {
+    year: number;
+    month: number;
 }
 
 export const waterApi = createApi({
@@ -33,10 +38,13 @@ export const waterApi = createApi({
                 body: id,
             }),
         }),
-        getDaiLyWaterConsumption: builder.query<DaiLyWaterConsumptionResponse[], string>({
+        getDaiLyWaterConsumption: builder.query<WaterConsumptionResponse[], string>({
             query: (date: string) => ({ url: `Water/daily-consumption?date=${date}` }),
         }),
+        getMonthlyWaterConsumption: builder.query<WaterConsumptionResponse[], GetMonthlyWaterConsumptionRequest>({
+            query: (getMonthlyWaterConsumptionRequest) => ({ url: `Water/monthly-consumption?year=${getMonthlyWaterConsumptionRequest.year}&month=${getMonthlyWaterConsumptionRequest.month}`}),
+        })
     }),
 });
 
-export const { useAddWaterMutation, useDeleteWaterEntryMutation, useGetDaiLyWaterConsumptionQuery } = waterApi;
+export const { useAddWaterMutation, useDeleteWaterEntryMutation, useGetDaiLyWaterConsumptionQuery, useGetMonthlyWaterConsumptionQuery } = waterApi;

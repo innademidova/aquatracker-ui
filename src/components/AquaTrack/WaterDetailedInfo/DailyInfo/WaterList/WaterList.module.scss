@@ -4,6 +4,19 @@
     margin-bottom: 24px;
     display: inline-flex;
     gap: 16px;
+
+    .nowater {
+        position: absolute;
+        top: 21%;
+        left: 52%;
+        transform: translate(-50%, -50%);
+        width: 41%;
+    }
+
+    .nowater-text {
+        position: absolute;
+        top: 36%;
+    }
 }
 
 .scroll-container {

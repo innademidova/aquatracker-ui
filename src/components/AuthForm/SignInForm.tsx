@@ -52,7 +52,7 @@ const SignInForm: React.FC = () => {
     return (
         <div className={styles['container']}>
             <div className={styles['form-wrapper']}>
-                <Typography component='h2'>Sign In</Typography>
+                <Typography component='h2' size={36} lineHeight={38} weight='bold'>Sign In</Typography>
                 <form onSubmit={handleSubmit(onSubmit)} noValidate>
                     <Input
                         {...register('email')}
@@ -89,9 +89,9 @@ const SignInForm: React.FC = () => {
                     </Button>
                 </form>
                 <div className={styles['auth-helper']}>
-                    <Typography component='p'>{`Don’t have an account? `}
+                    <Typography component='p' size={16} color='secondary50'>{`Don’t have an account? `}
                         <a onClick={() => navigate('/signup')}>
-                            <Typography component='span'>Sign Up</Typography>
+                            <Typography component='span' size={16} color='secondary' weight='bold'>Sign Up</Typography>
                         </a>
                     </Typography>
                 </div>

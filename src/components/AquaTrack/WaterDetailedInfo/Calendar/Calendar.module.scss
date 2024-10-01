@@ -77,6 +77,15 @@ button {
             line-height: 24px;
             letter-spacing: -0.01em;
             color: $primaryDark;
+
+            &.insufficiently {
+                background-color: $primaryDark20;
+            }
+
+            &.isSelected {
+                background-color: $primaryDark;
+                color: $primaryGreen;
+            }
         }
 
         .day-progress {
@@ -84,6 +93,7 @@ button {
             font-weight: 400;
             color: $secondaryDark60;
             text-align: center;
+            line-height: 24px;
         }
     }
 }

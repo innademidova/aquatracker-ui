@@ -2,17 +2,23 @@
 
 .day-overview-wrapper {
     width: 100%;
+    height: 174px;
 
     .day-overview {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 25px;
+        margin-bottom: 24px;
 
         .today {
             font-size: 28px;
             font-weight: 700;
             line-height: 32px;
             color: $primaryDark;
+            height: fit-content;
+        }
+
+        button {
+            height: fit-content;
         }
     }
 
