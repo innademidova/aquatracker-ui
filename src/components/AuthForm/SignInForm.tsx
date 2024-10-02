@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import Typography from 'components/Shared/Typography/Typography';
-import { useLoginMutation } from '@/app/api';
+import { useLoginMutation } from '@/app/authApi';
 import Input from 'components/Shared/Input/Input';
 import Button from 'components/Shared/Button/Button';
 

@@ -1,10 +1,12 @@
-import Icon from 'components/Icon/Icon';
-import styles from './UserBar.module.scss';
 import { useState } from 'react';
+
+import Icon from 'components/Icon/Icon';
 import avatar from '@/assets/images/user-photo.png';
 import UserBarPopover from '../UserBarPopover/UserBarPopover';
 import { useGetCurrentUserQuery } from '@/app/userApi';
 import { getCurrentUserName } from '@/utils/textFormatter';
+
+import styles from './UserBar.module.scss';
 
 const UserBar = () => {
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);

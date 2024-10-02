@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { authApi } from './api';
+import { authApi } from './authApi';
 import { waterApi } from './waterApi';
 import { userApi } from './userApi';
 import dateReducer from '../features/date/dateSlice';

@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 
-import { useLoginMutation } from '@/app/api';
+import { useLoginMutation } from '@/app/authApi';
 import Input from 'components/Shared/Input/Input';
 import Typography from 'components/Shared/Typography/Typography';
 import Button from 'components/Shared/Button/Button';

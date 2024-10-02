@@ -18,7 +18,7 @@ const WaterList = () => {
             })
                 :
                 <>
-                    <Typography component='p' weight='bold' size={18} className={styles['nowater-text']}>No water consumed today.</Typography>
+                    <Typography component='p' weight='bold' size={18} className={styles['nowater-text']}>No water was consumed.</Typography>
                     <img alt='nowater' className={styles.nowater} src={nowater} />
                 </>}
         </div>

@@ -1,26 +1,18 @@
-import { FC } from "react";
-import { useLocation } from "react-router-dom";
+import { FC, ReactNode } from "react";
 
 import styles from './SharedLayout.module.scss';
 import Logo from "./Logo/Logo";
 
 interface SharedLayoutProps {
-    leftSection: React.ReactNode;
-    rightSection: React.ReactNode;
+    leftSection: ReactNode;
+    rightSection: ReactNode;
 }
 
 const SharedLayout: FC<SharedLayoutProps> = ({ leftSection, rightSection }) => {
-    const location = useLocation();
+    const isTrackerPage = location.pathname === "/tracker";
 
-    const getBackgroundColor = () => {
-        if (location.pathname === "/tracker") {
-            return "#9BE1A0";
-        } else {
-            return "#F0EFF4";
-        }
-    };
     return <div className={styles.container}>
-        <div className={styles['left-section']} style={{ backgroundColor: getBackgroundColor() }}>
+        <div className={`${styles['left-section']} ${isTrackerPage ? styles['tracker-bg'] : ''}`}>
             <Logo />
             {leftSection}
         </div>
