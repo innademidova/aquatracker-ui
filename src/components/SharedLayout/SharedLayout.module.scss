@@ -3,20 +3,4 @@
     display: flex;
     justify-content: center;
     gap: 32px;
-
-    .left-section {
-        width: 672px;
-        border-radius: 30px;
-        padding: 32px;
-        box-sizing: border-box;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: $backgroundLight;
-
-        &.tracker-bg {
-            background-color: $primaryGreen; 
-        }
-    }
 }

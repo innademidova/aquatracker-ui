@@ -3,8 +3,14 @@ import SignInForm from "components/AuthForm/SignInForm"
 import SharedLayout from "components/SharedLayout/SharedLayout"
 
 const SignInPage = () => {
-    return <SharedLayout leftSection={<SignInForm />}
-    rightSection={<AdvantagesSection />} />
+    return <SharedLayout>
+    <SharedLayout.LeftSection>
+        <SignInForm />
+    </SharedLayout.LeftSection>
+    <SharedLayout.RightSection>
+        <AdvantagesSection />
+    </SharedLayout.RightSection>
+</SharedLayout>
 }
 
 export default SignInPage;

@@ -3,8 +3,14 @@ import WelcomeSection from "components/WelcomeSection/WelcomeSection";
 import AdvantagesSection from "components/AdvantagesSection/AdvantagesSection";
 
 const HomePage = () => {
-    return <SharedLayout leftSection={<WelcomeSection />}
-        rightSection={<AdvantagesSection />} />
+    return <SharedLayout>
+        <SharedLayout.LeftSection>
+            <WelcomeSection />
+        </SharedLayout.LeftSection>
+        <SharedLayout.RightSection>
+            <AdvantagesSection />
+        </SharedLayout.RightSection>
+    </SharedLayout>
 }
 
 export default HomePage;

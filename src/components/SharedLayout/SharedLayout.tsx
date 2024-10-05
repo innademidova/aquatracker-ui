@@ -1,26 +1,28 @@
-import { FC, ReactNode } from "react";
+import { FC, PropsWithChildren } from "react";
 
 import styles from './SharedLayout.module.scss';
-import Logo from "./Logo/Logo";
+import LeftSection from "./LeftSection/LeftSection";
+import RightSection from "./RightSection/RightSection";
+import cn from 'classnames';
 
 interface SharedLayoutProps {
-    leftSection: ReactNode;
-    rightSection: ReactNode;
+    className?: string;
 }
 
-const SharedLayout: FC<SharedLayoutProps> = ({ leftSection, rightSection }) => {
-    const isTrackerPage = location.pathname === "/tracker";
+interface SharedLayoutExtensions {
+    LeftSection: typeof LeftSection;
+    RightSection: typeof RightSection;
+}
 
-    return <div className={styles.container}>
-        <div className={`${styles['left-section']} ${isTrackerPage ? styles['tracker-bg'] : ''}`}>
-            <Logo />
-            {leftSection}
-        </div>
-        <div className={styles['right-section']}>{rightSection}</div>
+const SharedLayout: FC<PropsWithChildren<SharedLayoutProps>> & SharedLayoutExtensions = ({ className, children }) => {
+
+
+    return <div className={cn(styles.container, className)}>
+        {children}
     </div>
-
-
-
 }
+
+SharedLayout.LeftSection = LeftSection;
+SharedLayout.RightSection = RightSection;
 
 export default SharedLayout;

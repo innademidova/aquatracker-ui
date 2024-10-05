@@ -16,10 +16,10 @@ interface TypographyProps {
 const Typography: FC<TypographyProps> = ({
   component,
   color = 'primary',
-  align = 'left',
+  align,
   weight = 'normal',
-  size = 12,
-  lineHeight = 24,
+  size,
+  lineHeight,
   noWrap = false,
   className,
   children,

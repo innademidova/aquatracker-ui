@@ -9,6 +9,7 @@ import { useAddWaterMutation, useGetDaiLyWaterConsumptionQuery } from '@/app/wat
 import { getCurrentTime } from '@/utils/dateHelper';
 import { useAppSelector } from '@/app/hooks';
 import { selectedDate } from '@/features/date/dateSlice';
+import Typography from 'components/Shared/Typography/Typography';
 
 interface WaterModalProps {
     isEditing?: boolean;
@@ -36,8 +37,9 @@ const WaterModal: React.FC<WaterModalProps> = ({ isEditing = false, onSubmitSucc
 
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         try {
+            console.log(amount);
             await addWater({
-                amount: data.amount,
+                amount,
                 date,
                 time: data.time
             }).unwrap();
@@ -64,22 +66,22 @@ const WaterModal: React.FC<WaterModalProps> = ({ isEditing = false, onSubmitSucc
 
     return (
         <div className={styles.container}>
-            <span className={styles.title}>
+            <Typography component='h3'>
                 {isEditing ? 'Edit the entered amount of water' : 'Add water'}
-            </span>
-            <span className={styles.subtitle}>
-                {isEditing ? 'Correct entered data:' : 'Choose a value:'}
-            </span>
+            </Typography>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                    <span className={styles.label}>Amount of water:</span>
-                    <div className={styles['add-water-buttons']}>
-                        <Button type="button" onClick={handleDecrease} icon="Minus" className={styles['icon-btn']} variant="outlined" />
-                        <div className={styles.amount}>{amount || 0} ml</div>
-                        <Button type="button" onClick={handleIncrease} icon="Plus" className={styles['icon-btn']} variant="outlined" />
+                    <Typography component='h4' className={styles.subtitle}>
+                        {isEditing ? 'Correct entered data:' : 'Choose a value:'}
+                    </Typography>
+                    <div>
+                        <Typography component='span' size={16}>Amount of water:</Typography>
+                        <div className={styles['add-water-buttons']}>
+                            <Button type="button" onClick={handleDecrease} icon="Minus" className={styles['icon-btn']} variant="outlined" />
+                            <div className={styles.amount}><Typography component="span" size={15} weight='bold' color='white'>{amount || 0} ml</Typography></div>
+                            <Button type="button" onClick={handleIncrease} icon="Plus" className={styles['icon-btn']} variant="outlined" />
+                        </div>
                     </div>
-                </div>
-                <div className={styles['form-items']}>
                     <Input
                         {...register('time')}
                         id="time"
@@ -91,24 +93,24 @@ const WaterModal: React.FC<WaterModalProps> = ({ isEditing = false, onSubmitSucc
                         label="Recording time:"
                         labelColor="secondary"
                     />
-                    <Input
-                        {...register('amount')}
-                        id="amount"
-                        name="amount"
-                        type="number"
-                        min={50}
-                        value={amount}
-                        onChange={handleAmountChange}
-                        autoFocus
-                        isError={errors.amount}
-                        errorMessage={errors.amount?.message}
-                        variant="bold"
-                        label="Enter the value of the water used:"
-                    />
-                    <Button type="submit" variant="primary" className={styles['save-button']}>
-                        Save
-                    </Button>
                 </div>
+                <Input
+                    {...register('amount')}
+                    id="amount"
+                    name="amount"
+                    type="number"
+                    min={50}
+                    value={amount}
+                    onChange={handleAmountChange}
+                    autoFocus
+                    isError={errors.amount}
+                    errorMessage={errors.amount?.message}
+                    variant="bold"
+                    label="Enter the value of the water used:"
+                />
+                <Button type="submit" variant="primary" className={styles['save-button']}>
+                    Save
+                </Button>
             </form>
         </div>
     );

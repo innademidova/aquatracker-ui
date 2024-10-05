@@ -3,21 +3,15 @@
 .container {
     display: flex;
     flex-direction: column;
+    gap: 24px;
     max-width: 438px;
 
     form {
         width: 438px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
 
-        .form-items {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-    }
-
-    span {
-        color: $primaryDark;
-        font-weight: 700;
     }
 
     .title {
@@ -53,11 +47,8 @@
         .amount {
             background: $primaryDark;
             padding: 11px 20px;
-            font-size: 15px;
-            font-weight: 700;
-            color: $white;
             border-radius: 30px;
-            width: 92px;
+
         }
     }
 
