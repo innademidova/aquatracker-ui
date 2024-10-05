@@ -3,7 +3,7 @@ import styles from './Typography.module.scss';
 
 interface TypographyProps {
   component: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'span' | 'div';
-  color?: 'primary' | 'secondary' | 'secondary50'  | 'secondary60' | 'green';
+  color?: 'primary' | 'secondary' | 'secondary50'  | 'secondary60' | 'green' | 'white';
   align?: 'left' | 'center';
   weight?: 'regular' | 'bold';
   noWrap?: boolean;

@@ -1,11 +1,11 @@
 import { useGetDaiLyWaterConsumptionQuery } from '@/app/waterApi';
 import WaterEntry from '../WaterEntry/WaterEntry';
 import Typography from 'components/Shared/Typography/Typography';
-import nowater from '@/assets/images/nowater.png';
 import { selectedDate } from '@/features/date/dateSlice';
 import { useAppSelector } from '@/app/hooks';
 
 import styles from './WaterList.module.scss';
+import { Nowater } from '@/assets/images';
 
 const WaterList = () => {
     const date = useAppSelector(selectedDate);
@@ -19,7 +19,7 @@ const WaterList = () => {
                 :
                 <>
                     <Typography component='p' weight='bold' size={18} className={styles['nowater-text']}>No water was consumed.</Typography>
-                    <img alt='nowater' className={styles.nowater} src={nowater} />
+                    <img alt='nowater' className={styles.nowater} src={Nowater} />
                 </>}
         </div>
     </div>

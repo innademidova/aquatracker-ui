@@ -23,6 +23,10 @@
         color: $primaryGreen;
     }
 
+    &.color--white {
+        color: $white;
+    }
+
     &.weight--regular {
         font-weight: 400;
     }

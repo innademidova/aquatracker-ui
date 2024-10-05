@@ -5,10 +5,10 @@ import Icon from '../../Icon/Icon';
 import Button from '../../Shared/Button/Button';
 import Input from '../../Shared/Input/Input';
 import Typography from '../../Shared/Typography/Typography';
-import avatar from '../../../assets/images/user-photo.png';
 
 import styles from './UserSettingsModal.module.scss';
 import { useGetCurrentUserQuery, useUpdateProfileMutation } from '@/app/userApi';
+import { ProfilePfoto } from '@/assets/images';
 
 interface UserSettingsFormData {
     name: string;
@@ -63,7 +63,7 @@ const UserSettingsModal: React.FC<UserSettingsModalProps> = ({ onSubmitSuccess }
                 <div className={styles['profile-photo']}>
                     <input type="file" id="photo-upload" className={styles['photo-upload-input']} />
                     <label htmlFor="photo-upload" className={styles['photo-upload-label']}>
-                        <img src={avatar} alt="Profile photo" className={styles['profile-image']} />
+                        <img src={ProfilePfoto} alt="Profile photo" className={styles['profile-image']} />
                         <div className={styles['upload-btn']}>
                             <Icon glyph="Upload" />
                             <Typography color="secondary" component="p">
