@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import SignInPage from "./pages/SignInPage/SignInPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import TrackerPage from "./pages/TrackerPage/TrackerPage";
+import PrivateRoute from "components/PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +21,6 @@ export const router = createBrowserRouter([
     },
     {
         path: "tracker",
-        element: <TrackerPage />,
+        element: <PrivateRoute element={TrackerPage}/>,
     }
 ]);

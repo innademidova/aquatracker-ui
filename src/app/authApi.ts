@@ -23,7 +23,7 @@ const baseQueryWithReauth: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQue
         console.log('Access token expired, trying to refresh...');
 
         const refreshResult = await baseQuery(
-            { url: 'Auth/refresh', method: 'POST' },
+            { url: 'Auth/refresh-token', method: 'POST' },
             api,
             extraOptions
         );
@@ -53,7 +53,7 @@ export const authApi = createApi({
         }),
         refresh: builder.mutation<SignInResponse, void>({
             query: () => ({
-                url: `Auth/refresh`,
+                url: `Auth/refresh-token`,
                 method: 'POST',
             }),
         }),

@@ -4,10 +4,10 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
 import Typography from 'components/Shared/Typography/Typography';
 import { useLoginMutation } from '@/app/authApi';
+import { useGetCurrentUserQuery } from '@/app/userApi';
 import Input from 'components/Shared/Input/Input';
 import Button from 'components/Shared/Button/Button';
 
@@ -29,7 +29,7 @@ const SignInForm: React.FC = () => {
     });
     const [loginUser, { isLoading }] = useLoginMutation();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const { refetch } = useGetCurrentUserQuery();
     const [loginError, setLoginError] = useState<string | null>(null);
     const [showPassword, setShowPassword] = useState(false);
 
@@ -37,7 +37,7 @@ const SignInForm: React.FC = () => {
         try {
             const result = await loginUser(data).unwrap();
             if (result.accessToken) {
-                // dispatch(setToken(result.accessToken));
+                refetch();
                 navigate('/tracker');
             } else {
                 setLoginError('Login or password is incorrect');
