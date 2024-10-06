@@ -11,6 +11,6 @@ export const getFormattedSelectedDate = (dateString: string) => {
     return isToday ? 'Today' : date.format('DD, MMMM');
 }
 
-export const getStringFullDate = (currentDate: Dayjs, day: number) => {
+export const getFullDate = (currentDate: Dayjs, day: number) => {
     return currentDate.date(day).format('YYYY-MM-DD');
 }
