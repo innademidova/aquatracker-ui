@@ -4,11 +4,10 @@ import * as Yup from 'yup';
 import Icon from '../../Icon/Icon';
 import Button from '../../Shared/Button/Button';
 import Input from '../../Shared/Input/Input';
-import Typography from '../../Shared/Typography/Typography';
 
 import styles from './UserSettingsModal.module.scss';
 import { useGetCurrentUserQuery, useUpdateProfileMutation } from '@/app/userApi';
-import { ProfilePfoto } from '@/assets/images';
+import { Customer1 } from '@/assets/images';
 
 interface UserSettingsFormData {
     name: string;
@@ -56,24 +55,22 @@ const UserSettingsModal: React.FC<UserSettingsModalProps> = ({ onSubmitSuccess }
 
     return (
         <div className={styles['profile-modal']}>
-            <header className={styles['modal-header']}>
-                <Typography component="h3">Setting</Typography>
-            </header>
+            <h3 className={styles.title}>Settings</h3>
             <form onSubmit={handleSubmit(onSubmit)} className={styles['settings-form']}>
                 <div className={styles['profile-photo']}>
                     <input type="file" id="photo-upload" className={styles['photo-upload-input']} />
                     <label htmlFor="photo-upload" className={styles['photo-upload-label']}>
-                        <img src={ProfilePfoto} alt="Profile photo" className={styles['profile-image']} />
+                        <img src={Customer1} alt="Profile photo" className={styles['profile-image']} />
                         <div className={styles['upload-btn']}>
                             <Icon glyph="Upload" />
-                            <Typography color="secondary" component="p">
+                            <p>
                                 Upload a photo
-                            </Typography>
+                            </p>
                         </div>
                     </label>
                 </div>
                 <div className={styles['fieldset']}>
-                    <Typography component="h4">Your gender identity</Typography>
+                    <p className={styles.label}>Your gender identity</p>
                     <div className={styles['radio-group']}>
                         <label htmlFor="gender-woman">
                             <input
@@ -119,20 +116,26 @@ const UserSettingsModal: React.FC<UserSettingsModalProps> = ({ onSubmitSuccess }
                             errorMessage={errors.email?.message}
                         />
                         <div className={styles['daily-norma']}>
-                            <Typography component='h4'>My daily norma</Typography>
+                            <p className={styles.label}>My daily norma</p>
                             <div className={styles['norma-details']}>
-                                <div className={styles['norma-item']}>
-                                    <Typography component='p'>For woman:</Typography>
-                                    <Typography color='green' component='span'>V=(M*0.03) + (T*0.4)</Typography>
-                                </div>
-                                <div className={styles['norma-item']}>
-                                    <Typography component='p'>For man:</Typography>
-                                    <Typography color='green' component='span'>V=(M*0.04) + (T*0.6)</Typography>
+                                <div className={styles['formula-section']}>
+                                    <div className={styles['norma-item']}>
+                                        <p>For woman:</p>
+                                        <span className={styles.formula}>V=(M*0.03) + (T*0.4)</span>
+                                    </div>
+                                    <div className={styles['norma-item']}>
+                                        <p>For man:</p>
+                                        <span className={styles.formula}>V=(M*0.04) + (T*0.6)</span>
+                                    </div>
                                 </div>
                                 <div className={styles['formula-details']}>
-                                    <Typography component='p' >
-                                        <Typography weight='regular' color='green' component='span'>*</Typography> V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports or other types of activities commensurate with loads (in the absence of these, you must set 0).
-                                    </Typography>
+                                    <p>
+                                        <span className={styles.asterisk}>*</span> V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports or other types of activities commensurate with loads (in the absence of these, you must set 0).
+                                    </p>
+                                </div>
+                                <div className={styles['additional-info']}>
+                                    <Icon glyph='ExclamationMark' />
+                                    <p>Active time in hours</p>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +160,7 @@ const UserSettingsModal: React.FC<UserSettingsModalProps> = ({ onSubmitSuccess }
                             errorMessage={errors.activeTime?.message}
                         />
                         <div className={styles['form-group']}>
-                            <Typography component="p">The required amount of water in liters per day:</Typography>
+                            <p>The required amount of water in liters per day:</p>
                             <span className={styles['result']}>1.8 L</span>
                         </div>
 

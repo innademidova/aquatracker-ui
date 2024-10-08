@@ -13,3 +13,4 @@ export { default as Close } from './close.svg?react';
 export { default as Upload } from './upload.svg?react';
 export { default as LogOut } from './log-out.svg?react';
 export { default as Settings } from './settings.svg?react';
+export { default as ExclamationMark } from './exclamation-mark.svg?react';

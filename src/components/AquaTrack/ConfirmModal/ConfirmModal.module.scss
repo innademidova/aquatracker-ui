@@ -8,9 +8,53 @@
     align-items: center;
     width: 436px;
 
+    span {
+        color: $primaryDark;
+    }
+
+    .title {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 32px;
+
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
     .buttons {
         display: flex;
         gap: 10px;
         width: 85%;
     }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        width: 304px;
+        gap: 16px;
+
+        span {
+            color: $primaryDark;
+        }
+
+        .title {
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        .buttons {
+            flex-direction: column;
+            gap: 9px;
+            width: 100%;
+            padding-top: 12px;
+        }
+    }
+
 }

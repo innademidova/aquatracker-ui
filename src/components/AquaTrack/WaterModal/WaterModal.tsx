@@ -80,19 +80,19 @@ const WaterModal: React.FC<WaterModalProps> = ({ isEditing = false, onSubmitSucc
 
     return (
         <div className={styles.container}>
-            <Typography component='h3'>
+            <h3 className={styles.title}>
                 {isEditing ? 'Edit the entered amount of water' : 'Add water'}
-            </Typography>
+            </h3>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                    <Typography component='h4' className={styles.subtitle}>
+                    <span className={styles.subtitle}>
                         {isEditing ? 'Correct entered data:' : 'Choose a value:'}
-                    </Typography>
+                    </span>
                     <div>
-                        <Typography component='span' size={16}>Amount of water:</Typography>
+                        <p>Amount of water:</p>
                         <div className={styles['add-water-buttons']}>
                             <Button type="button" onClick={handleDecrease} icon="Minus" className={styles['icon-btn']} variant="outlined" />
-                            <div className={styles.amount}><Typography component="span" size={15} weight='bold' color='white'>{amount} ml</Typography></div>
+                            <div className={styles.amount}><span>{amount} ml</span></div>
                             <Button type="button" onClick={handleIncrease} icon="Plus" className={styles['icon-btn']} variant="outlined" />
                         </div>
                     </div>

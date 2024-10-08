@@ -1,6 +1,33 @@
 @use '../../styles/variables.scss' as *;
 
 .profile-modal {
+    .title {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 32px;
+        color: $primaryDark;
+    }
+
+    p {
+        font-size: 16px;
+        color: $secondaryDark;
+    }
+
+    .label {
+        color: $primaryDark;
+        font-weight: 700;
+        padding-bottom: 14px;
+    }
+
+    span {
+        font-size: 16px;
+        font-weight: 700;
+        color: $primaryGreen;
+
+        &.asterisk {
+            font-weight: 400;
+        }
+    }
 
     .settings-form {
         display: flex;
@@ -10,6 +37,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding-top: 20px;
+            padding-bottom: 40px;
 
             .photo-upload-input {
                 display: none;
@@ -25,6 +54,7 @@
                 .profile-image {
                     width: 100px;
                     height: 100px;
+                    border-radius: 50%;
                 }
 
                 .upload-btn {
@@ -46,6 +76,7 @@
             .radio-group {
                 display: flex;
                 gap: 20px;
+                padding-bottom: 24px;
 
                 label {
                     display: flex;
@@ -80,24 +111,148 @@
             }
         }
 
-        .formula-details {
-            border: 1px solid $secondaryDark15;
-            border-radius: 15px;
-            padding: 16px;
+        .form-parts {
+            display: flex;
+            gap: 40px;
+            padding-bottom: 40px;
 
-            p {
-                color: $secondaryDark60;
+            .form-part {
+                width: 400px;
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+
+                .daily-norma {
+
+                    .norma-details {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 14px;
+
+                        .formula-section {
+                            display: flex;
+                            gap: 28px;
+
+                            .norma-item {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 4px;
+                            }
+                        }
+
+                        .formula-details {
+                            border: 1px solid $secondaryDark15;
+                            border-radius: 15px;
+                            padding: 16px;
+
+                            p {
+                                color: $secondaryDark60;
+                            }
+                        }
+
+                        .additional-info {
+                            display: flex;
+                            gap: 4px;
+
+                            svg {
+                                width: 22px;
+                                height: 22px;
+                            }
+                        }
+                    }
+                }
+
+                .form-group {
+                    padding-top: 10px;
+                    display: flex;
+                    gap: 5px;
+                    text-wrap: nowrap;
+                }
             }
         }
     }
+}
 
-    .form-parts {
-        display: flex;
-        gap: 40px;
+@media screen and (max-width: 767px) {
+    .profile-modal {
+        .title {}
 
-        .form-part {
-            width: 400px;
+        p {
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        span {
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        .settings-form {
+
+            .profile-photo {
+
+                .photo-upload-label {
+
+                    .profile-image {}
+
+                    .upload-btn {
+
+
+                        svg {}
+                    }
+                }
+            }
+
+
+            .fieldset {
+
+                .radio-group {
+
+
+                    label {
+                        font-size: 14px;
+                    }
+
+                    input[type="radio"] {
+
+
+                        &:checked {}
+
+                        &::before {}
+                    }
+                }
+            }
+
+            .form-parts {
+                flex-direction: column;
+                gap: 24px;
+
+                .form-part {
+
+                    .daily-norma {
+
+                        .norma-details {
+
+
+                            .formula-section {
+
+
+                                .norma-item {}
+                            }
+
+                            .formula-details {}
+
+                            .additional-info {
+
+
+                                svg {}
+                            }
+                        }
+                    }
+
+                    .form-group {}
+                }
+            }
         }
     }
 }
-  

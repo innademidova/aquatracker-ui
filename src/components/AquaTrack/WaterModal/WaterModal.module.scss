@@ -4,26 +4,34 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    max-width: 438px;
+    width: 438px;
 
     form {
-        width: 438px;
+        width: 100%;
         display: flex;
         flex-direction: column;
         gap: 24px;
+    }
 
+    span {
+        color: $primaryDark;
+    }
+
+    p {
+        color: $secondaryDark;
     }
 
     .title {
         font-size: 28px;
         line-height: 32px;
-        margin-bottom: 24px;
-
+        color: $primaryDark;
     }
 
     .subtitle {
-        margin-bottom: 20px;
         font-size: 18px;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 20px;
     }
 
     .add-water-buttons {
@@ -49,10 +57,51 @@
             padding: 11px 20px;
             border-radius: 30px;
 
+            span {
+                font-weight: 15px;
+                color: $white;
+                font-weight: 700;
+            }
+
+            ;
         }
     }
 
     .save-button {
         width: 141px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        width: 303px;
+
+        p {
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        .title {
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+        .add-water-buttons {
+            .amount {
+                span {
+                    font-size: 14px;
+                    line-height: 18px;
+                }
+            }
+        }
+
+        .save-button {
+            width: 116px;
+        }
     }
 }

@@ -16,10 +16,25 @@
         top: 20px;
         right: 20px;
         padding: 0;
-        
+
         svg {
             width: 28px;
             height: 28px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .modal {
+        padding: 40px 20px;
+
+        .close-button {
+            right: 16px;
+    
+            svg {
+                width: 24px;
+                height: 24px;
+            }
         }
     }
 }
