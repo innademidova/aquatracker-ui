@@ -10,7 +10,7 @@ interface SignInResponse {
   accessToken: string;
 }
 
-interface SignInRequest {
+interface AuthRequest {
   email: string;
   password: string;
 }
@@ -47,11 +47,18 @@ export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: baseQueryWithReauth,
   endpoints: (builder) => ({
-    login: builder.mutation<SignInResponse, SignInRequest>({
+    login: builder.mutation<SignInResponse, AuthRequest>({
       query: (signInRequest) => ({
         url: `Auth/signin`,
         method: "POST",
         body: signInRequest,
+      }),
+    }),
+    register: builder.mutation<void, AuthRequest>({
+      query: (signUpRequest) => ({
+        url: `Auth/signup`,
+        method: "POST",
+        body: signUpRequest,
       }),
     }),
     refresh: builder.mutation<SignInResponse, void>({
@@ -69,5 +76,5 @@ export const authApi = createApi({
   }),
 });
 
-export const { useLoginMutation, useRefreshMutation, useLogoutMutation } =
+export const { useLoginMutation, useRefreshMutation, useLogoutMutation, useRegisterMutation } =
   authApi;
