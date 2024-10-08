@@ -4,6 +4,11 @@ export const getCurrentTime = () => {
     return dayjs().format('HH:mm');
 };
 
+export const formatTime = (timeString: string) => {
+    const parts = timeString.split(':');
+    return `${parts[0]}:${parts[1]}`;
+}
+
 export const getFormattedSelectedDate = (dateString: string) => {
     const today = dayjs();
     const date = dayjs(dateString);

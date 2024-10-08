@@ -3,22 +3,25 @@ import styles from './AdvantagesSection.module.scss';
 import cn from 'classnames';
 import { Background, Customer1, Customer2, Customer3 } from '@/assets/images';
 
-
 const AdvantagesSection = () => {
     const customers = [Customer1, Customer2, Customer3]
     return <div className={styles.container}>
-        <img alt="backgroung" src={Background} />
+        <img alt="backgroung" src={Background} className={styles.background} />
         <div className={cn(styles.details, styles.customers)}>
             <div className={styles['avatar-group']}>
                 {customers.map(el => {
                     return <img alt='customer-pfoto' src={el} key={el} className={styles.avatar} />
                 })}
             </div>
-            <Typography component='span' size={15} lineHeight={23} weight='bold'>Our <Typography component='span' size={15} lineHeight={23} weight='bold' color='green'>happy</Typography> customers</Typography>
+            <span>Our <span className={styles.happy}>happy</span> customers</span>
         </div>
-        <div className={cn(styles.details, styles['habit-drive'])}><div className={styles.adornment}></div><Typography component='span' weight='bold' lineHeight={12} color="white">Habit drive</Typography></div>
-        <div className={cn(styles.details, styles['view-statistics'])}><Typography component='span' weight='bold' lineHeight={12} color="primary">View statistics</Typography></div>
-        <div className={cn(styles.details, styles['rate-setting'])}><Typography component='span' weight='bold' lineHeight={12} color="primary">Personal rate setting</Typography></div>
+        <div className={styles.benefits}>
+            <div>
+                <div className={cn(styles.details, styles['habit-drive'])}><div className={styles.adornment}></div><span>Habit drive</span></div>
+                <div className={cn(styles.details, styles['view-statistics'])}><span>View statistics</span></div>
+            </div>
+            <div className={cn(styles.details, styles['rate-setting'])}><span>Personal rate setting</span></div>
+        </div>
     </div>
 }
 

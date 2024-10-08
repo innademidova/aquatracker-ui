@@ -3,7 +3,7 @@
 .wrapper {
     padding: 32px;
     box-sizing: border-box;
-    
+
     .bottle {
         display: block;
         margin: 0 auto;
@@ -14,5 +14,25 @@
         width: 178px;
         bottom: 64px;
         right: 32px;
-    } 
+    }
+}
+
+@media screen and (max-width: 1439px) {
+    .bottle {
+        height: 477px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .wrapper {
+        .bottle {
+            height: 335px;
+        }
+
+        .add-water-button {
+            width: 140px;
+            bottom: 32px;
+            right: 16px;
+        }
+    }
 }

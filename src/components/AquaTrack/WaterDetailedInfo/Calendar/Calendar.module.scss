@@ -15,6 +15,7 @@ button {
 .calendar-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     .calendar-title {
         font-size: 28px;
@@ -26,6 +27,7 @@ button {
     .calendar-controls {
         display: flex;
         gap: 20px;
+        align-items: center;
 
         .month-navigation {
             display: flex;
@@ -49,6 +51,24 @@ button {
 
         .statistic-button {
             padding: 0;
+
+            svg {
+                width: 24px;
+                height: 24px;
+                opacity: 40%;
+            }
+
+            &.is-active {
+                svg {
+                    opacity: 100%;
+                }
+            }
+
+            &:hover {
+                svg {
+                    opacity: 100%;
+                }
+            }
         }
     }
 }
@@ -91,10 +111,84 @@ button {
 
         .day-progress {
             font-size: 12px;
-            font-weight: 400;
             color: $secondaryDark60;
             text-align: center;
+            line-height: 23px;
+        }
+
+        &.disabled {
+            .day {
+                opacity: 40%;
+            } 
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .conrainer {
+        height: 410px;
+    }
+
+    .calendar-header {
+        .calendar-controls {
+            gap: 16px;
+
+            .navigation-button {
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+
+            .month-navigation {
+                .current-month {
+                    font-size: 14px;
+                    line-height: 18px;
+                }
+            }
+
+            .statistic-button {
+                padding: 0;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+        .calendar-title {
+            font-size: 20px;
             line-height: 24px;
+        }
+
+
+    }
+
+    .calendar-grid-wrapper {
+        height: 300px;
+
+        .calendar-grid {
+            row-gap: 20px;
+            column-gap: 18px;
+            grid-template-columns: repeat(7, 1fr);
+
+
+            .day-wrapper {
+                gap: 6px;
+
+                .day {
+                    width: 28px;
+                    height: 28px;
+                    font-size: 14px;
+                    line-height: 18px;
+                }
+
+                .day-progress {
+                    font-size: 10px;
+                    line-height: 10px;
+                }
+            }
         }
     }
 }

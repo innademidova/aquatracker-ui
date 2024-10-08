@@ -7,10 +7,10 @@ import { selectedDate, setSelectedDate } from '@/features/date/dateSlice';
 import { useGetCurrentUserQuery } from '@/app/userApi';
 import { useGetMonthlyWaterConsumptionQuery } from '@/app/waterApi';
 import { getPercentOfDailyConsumedWater } from '@/utils/waterInfoHelper';
-import Typography from 'components/Shared/Typography/Typography';
 import Button from 'components/Shared/Button/Button';
 import WaterConsumptionChart from '../WaterConsumptionChart/WaterConsumptionChart ';
 import { getFullDate } from '@/utils/dateHelper';
+import cn from 'classnames';
 
 const Calendar = () => {
     const dispatch = useAppDispatch();
@@ -20,7 +20,7 @@ const Calendar = () => {
     const { data: currentUser } = useGetCurrentUserQuery();
     const { data: monthlyWaterConsumption } = useGetMonthlyWaterConsumptionQuery({ year: currentDate.year(), month: currentDate.month() + 1 });
     const [isStatisticOpen, setIsStatisticOpen] = useState(false);
-    console.log(monthlyWaterConsumption)
+    
     const daysInMonth = currentDate.daysInMonth();
 
     const handleNextMonth = () => {
@@ -56,22 +56,39 @@ const Calendar = () => {
                             <Icon className={styles['icon']} glyph={'ArrowRight'} />
                         </button>
                     </div>
-                    <Button onClick={() => setIsStatisticOpen(!isStatisticOpen)} variant='icon' icon='Statistic' />
+                    <Button className={cn(styles['statistic-button'], {
+                        [styles['is-active']]: isStatisticOpen
+                    })} onClick={() => setIsStatisticOpen(!isStatisticOpen)} variant='icon' icon='Statistic' />
                 </div>
             </div>
             {isStatisticOpen ? <WaterConsumptionChart currentDate={currentDate} days={renderDays()} monthlyWaterConsumption={monthlyWaterConsumption} /> :
+            <div className={styles['calendar-grid-wrapper']}>
                 <div className={styles['calendar-grid']}>
                     {renderDays().map((day) => {
                         const fullDate = getFullDate(currentDate, day);
                         const isSelected = fullDate === selectedDateFromRedux;
+                        const isFutureDate = dayjs(fullDate).isAfter(today, 'day');
                         const percentOfConsumedWater = currentUser && getPercentOfDailyConsumedWater(currentUser.dailyWaterGoal, fullDate, monthlyWaterConsumption) || 0;
+
                         return (
-                            <div onClick={() => dispatch(setSelectedDate(fullDate))} className={styles['day-wrapper']} key={day}>
-                                <div className={`${styles.day} ${percentOfConsumedWater < 100 ? styles['insufficiently'] : ''} ${isSelected ? styles['isSelected'] : ''}`}>{day}</div>
-                                <Typography component='span' align='center' color='secondary60' lineHeight={23}>{percentOfConsumedWater}%</Typography>
+                            <div
+                                key={day}
+                                onClick={() => !isFutureDate && dispatch(setSelectedDate(fullDate))}
+                                className={cn(styles['day-wrapper'], {
+                                    [styles['disabled']]: isFutureDate,
+                                })}
+                            >
+                                <div className={cn(styles.day, {
+                                    [styles['insufficiently']]: percentOfConsumedWater < 100,
+                                    [styles['isSelected']]: isSelected,
+                                })}>
+                                    {day}
+                                </div>
+                                <span className={styles['day-progress']}>{percentOfConsumedWater}%</span>
                             </div>
                         );
                     })}
+                </div>
                 </div>
             }
         </div>

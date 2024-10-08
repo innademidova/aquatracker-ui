@@ -3,15 +3,21 @@
 .container {
     width: 436px;
     margin: 0 auto;
+    padding: 0;
 
     .form-wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
 
         h2 {
             width: 100%;
             margin-bottom: 32px;
+            font-size: 36px;
+            line-height: 38px;
+            font-weight: 700;
+            color: $primaryDark;
         }
 
         form {
@@ -30,10 +36,45 @@
 
             p {
                 color: $secondaryDark50;
+                font-size: 16px;
 
                 span {
                     text-decoration: underline;
                     cursor: pointer;
+                    color: $secondaryDark;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1439px) {
+    .container {
+        height: 960px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        height: 780px;
+
+        .form-wrapper {
+            padding: 0 16px;
+
+            h2 {
+                font-size: 32px;
+                line-height: 32px;
+            }
+
+            .auth-helper {
+
+                p {
+                    font-size: 14px;
+                    line-height: 18px;
                 }
             }
         }

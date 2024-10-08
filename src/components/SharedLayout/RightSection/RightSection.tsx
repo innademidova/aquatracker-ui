@@ -1,11 +1,16 @@
 import { FC, PropsWithChildren } from "react";
+import styles from './RightSection.module.scss';
+import cn from "classnames";
 
 interface RightSectionProps {
     className?: string;
+    isVisible?: boolean;
 }
 
-const RightSection: FC<PropsWithChildren<RightSectionProps>> = ({ className, children }) => {
-    return <div className={className}>{children}</div>
+const RightSection: FC<PropsWithChildren<RightSectionProps>> = ({ className, children, isVisible }) => {
+    return <div className={cn(styles['right-section-container'], className, {
+        [styles['not-visible']]: isVisible === false
+    })}>{children}</div>
 }
 
 export default RightSection;

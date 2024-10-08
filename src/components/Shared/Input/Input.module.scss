@@ -100,14 +100,26 @@
     }
 }
 
-.password-toggle-btn {
-    display: flex;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
 
-    .icon {
-        width: 18.33px;
-        height: 18.33px;
+@media screen and (max-width: 767px) {
+    .input-wrapper {
+        .label {
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        .input-item {
+            .input {
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+
+        .icon-button {
+            .input-icon {
+                width: 18px;
+                height: 18px;
+            }
+        }
     }
 }

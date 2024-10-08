@@ -1,6 +1,5 @@
 .container {
     background: #F0EFF4;
-    width: 672px;
     height: 736px;
     border-radius: 30px;
     box-sizing: border-box;
@@ -9,4 +8,11 @@
     flex-direction: column;
     position: relative;
     padding: 32px;
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        padding: 40px 20px;
+        height: fit-content;
+    }
 }

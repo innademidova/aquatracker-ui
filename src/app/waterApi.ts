@@ -7,11 +7,16 @@ interface AddWaterEntryRequest {
     time: string;
 }
 
+interface UpdateWaterEntryRequest {
+    id: number,
+    amount: number,
+}
+
 export interface WaterConsumptionResponse {
     id: number;
     amount: number;
     date: string;
-    time: string;
+    loggedTime: string;
     userId: number;
 }
 
@@ -31,6 +36,13 @@ export const waterApi = createApi({
                 body: addWaterEntryRequest,
             }),
         }),
+        updateWaterEntry: builder.mutation<void, UpdateWaterEntryRequest>({
+            query: (updateWaterEntryRequest) => ({
+                url: 'Water/edit',
+                method: 'PUT',
+                body: updateWaterEntryRequest,
+            }),
+        }),
         deleteWaterEntry: builder.mutation<void, number>({
             query: (id: number) => ({
                 url: `Water/${id}/delete`,
@@ -42,9 +54,9 @@ export const waterApi = createApi({
             query: (date: string) => ({ url: `Water/daily-consumption?date=${date}` }),
         }),
         getMonthlyWaterConsumption: builder.query<WaterConsumptionResponse[], GetMonthlyWaterConsumptionRequest>({
-            query: (getMonthlyWaterConsumptionRequest) => ({ url: `Water/monthly-consumption?year=${getMonthlyWaterConsumptionRequest.year}&month=${getMonthlyWaterConsumptionRequest.month}`}),
+            query: (getMonthlyWaterConsumptionRequest) => ({ url: `Water/monthly-consumption?year=${getMonthlyWaterConsumptionRequest.year}&month=${getMonthlyWaterConsumptionRequest.month}` }),
         })
     }),
 });
 
-export const { useAddWaterMutation, useDeleteWaterEntryMutation, useGetDaiLyWaterConsumptionQuery, useGetMonthlyWaterConsumptionQuery } = waterApi;
+export const { useAddWaterMutation, useDeleteWaterEntryMutation, useGetDaiLyWaterConsumptionQuery, useGetMonthlyWaterConsumptionQuery, useUpdateWaterEntryMutation } = waterApi;

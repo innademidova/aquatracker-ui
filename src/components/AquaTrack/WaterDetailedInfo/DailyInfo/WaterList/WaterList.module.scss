@@ -16,6 +16,9 @@
     .nowater-text {
         position: absolute;
         top: 36%;
+        font-size: 18px;
+        font-weight: 700;
+        color: $primaryDark;
     }
 }
 
@@ -39,4 +42,21 @@
         background-color: $white;
         border-radius: 9px;
     }
+}
+
+@media screen and (max-width: 767px) {
+    .water-entries {
+        gap: 8px;
+        
+        .nowater {
+            width: 26%;
+            top: 36%;
+            left: 75%;
+        }
+
+        .nowater-text {
+            font-size: 14px;
+        }
+    }
+
 }

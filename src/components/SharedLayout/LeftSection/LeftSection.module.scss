@@ -1,8 +1,8 @@
 @use '../../styles/variables.scss' as *;
 
-.container {
-    width: 672px;
+.left-section-container {
     border-radius: 30px;
+    width: 672px;
     padding: 32px;
     box-sizing: border-box;
     position: relative;
@@ -13,5 +13,12 @@
 
     &.background-green {
         background-color: $primaryGreen;
+    }
+}
+
+@media screen and (max-width: 1439px) {
+    .left-section-container {
+        width: 100%;
+        padding: 0;
     }
 }

@@ -9,7 +9,7 @@ interface LeftSectionProps {
 }
 
 const LeftSection: FC<PropsWithChildren<LeftSectionProps>> = ({ className, background = 'gray', children }) => {
-    return <div className={cn(styles.container, className, {
+    return <div className={cn(styles['left-section-container'], className, {
         [styles['background-green']]: background === 'green'
     })}>
         <Logo />

@@ -1,20 +1,24 @@
-.container {
+.layout-container {
     display: flex;
+    margin: 0 auto;
+    gap: 32px;
+    justify-content: center;
+    width: 100%;
 }
 
-@media screen and (min-width: 768px) {
-    .container {
+@media screen and (max-width: 1439px) {
+    .layout-container {
         flex-direction: column;
         gap: 16px;
         align-items: center;
+        width: 704px;
     }
 }
 
-@media screen and (min-width: 1440px) {
-    .container {
-        gap: 32px;
-        justify-content: center;
-        flex-direction: row;
-        align-items: normal;
+@media screen and (max-width: 767px) {
+    .layout-container {
+        width: 343px;
+        flex-direction: column;
+        align-items: center;
     }
 }

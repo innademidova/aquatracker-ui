@@ -161,3 +161,39 @@
 
     }
 }
+
+@media screen and (max-width: 767px) {
+    .btn {
+        height: 46px;
+
+        &--secondary {
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+
+        }
+
+        span {
+            font-size: 14px;
+        }
+
+        &--icon {
+            height: fit-content;
+
+            svg {
+                width: 14px;
+                height: 14px;
+            }
+        }
+
+        &--simple { 
+            height: fit-content;  
+            .btn-text {
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+    
+    }
+}

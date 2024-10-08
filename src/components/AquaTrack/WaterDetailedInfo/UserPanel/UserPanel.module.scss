@@ -24,3 +24,18 @@
         }
     }
 }
+
+@media screen and (max-width: 767px) {
+    .container {
+        .user-header {
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start;
+            
+            .hello {
+                font-size: 32px;
+                line-height: 32px;
+            }
+        }
+    }
+}

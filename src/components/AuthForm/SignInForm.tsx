@@ -5,7 +5,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 
-import Typography from 'components/Shared/Typography/Typography';
 import { useLoginMutation } from '@/app/authApi';
 import { useGetCurrentUserQuery } from '@/app/userApi';
 import Input from 'components/Shared/Input/Input';
@@ -52,7 +51,7 @@ const SignInForm: React.FC = () => {
     return (
         <div className={styles['container']}>
             <div className={styles['form-wrapper']}>
-                <Typography component='h2' size={36} lineHeight={38} weight='bold'>Sign In</Typography>
+                <h2>Sign In</h2>
                 <form onSubmit={handleSubmit(onSubmit)} noValidate>
                     <Input
                         {...register('email')}
@@ -89,11 +88,11 @@ const SignInForm: React.FC = () => {
                     </Button>
                 </form>
                 <div className={styles['auth-helper']}>
-                    <Typography component='p' size={16} color='secondary50'>{`Don’t have an account? `}
+                    <p>{`Don’t have an account? `}
                         <a onClick={() => navigate('/signup')}>
-                            <Typography component='span' size={16} color='secondary' weight='bold'>Sign Up</Typography>
+                            <span>Sign Up</span>
                         </a>
-                    </Typography>
+                    </p>
                 </div>
             </div>
         </div>

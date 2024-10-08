@@ -1,11 +1,18 @@
 @use '../../../../styles/variables.scss' as *;
 
 .popover-wrapper {
+    width: 100%;
     position: absolute;
     background-color: $white;
     border-radius: 15px;
     padding: 14px 20px;
-    top: 96px;
-    right: 32px;
-    width: 157px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width:767px) {
+    .popover-wrapper {
+        gap: 8px;
+        top: 54px;
+    }
 }

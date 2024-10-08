@@ -5,7 +5,7 @@ import { useGetDaiLyWaterConsumptionQuery } from '@/app/waterApi';
 import { useAppSelector } from '@/app/hooks';
 import { selectedDate } from '@/features/date/dateSlice';
 import { getFormattedSelectedDate } from '@/utils/dateHelper';
-import Typography from 'components/Shared/Typography/Typography';
+import cn from 'classnames';
 
 const WaterProgressBar = () => {
   const date = useAppSelector(selectedDate);
@@ -17,17 +17,19 @@ const WaterProgressBar = () => {
 
   return (
     <div className={styles['progress-container']}>
-      <Typography component='span' weight='bold' size={15} lineHeight={23}>{getFormattedSelectedDate(date)}</Typography>
+      <span className={styles.day}>{getFormattedSelectedDate(date)}</span>
       <div className={styles['progress-bar']}>
         <div className={styles['progress-fill']} style={{ width: `${percentage || 0}%` }}></div>
         <div className={styles['progress-indicator']} style={{ left: `${percentage}%` }}>
-          {percentage > 0 && <Typography component='span' size={12} lineHeight={23} color='green' className={styles['progress-value']}>{percentage}%</Typography>}
+          {percentage > 0 && <span className={styles['progress-value']}>{percentage}%</span>}
         </div>
       </div>
-      {!percentage && <div className={styles['progress-labels']}>
-        <Typography component='span' lineHeight={23} color='secondary60'>0%</Typography>
-        <Typography component='span' lineHeight={23} color='secondary60'>100%</Typography>
-      </div>}
+      <div className={cn(styles['progress-labels'], {
+        [styles['not-visible']]: percentage !== 0
+      })}>
+        <span>0%</span>
+        <span>100%</span>
+      </div>
     </div>
   );
 };

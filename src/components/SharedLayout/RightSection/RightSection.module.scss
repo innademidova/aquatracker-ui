@@ -1,0 +1,14 @@
+
+.right-section-container {
+    width: 672px;
+}
+
+@media screen and (max-width: 1439px) {
+    .right-section-container {
+        width: 100%;
+
+        &.not-visible {
+            display: none;
+        }
+    }
+}

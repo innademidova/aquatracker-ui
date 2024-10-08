@@ -12,7 +12,7 @@ const UserBar = () => {
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);
     const { data: currentUser } = useGetCurrentUserQuery();
 
-    return <div>
+    return <div className={styles['profile-button-wrapper']}>
         <div onClick={() => setIsPopoverOpen(() => !isPopoverOpen)} className={styles['profile-button']}>
             <span>{currentUser && getCurrentUserName(currentUser)}</span>
             <img alt="avatar" src={ProfilePfoto} />

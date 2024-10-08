@@ -14,11 +14,11 @@ const WaterList = () => {
     return <div className={styles['scroll-container']}>
         <div className={styles['water-entries']}>
             {data?.length ? data.map(e => {
-                return <WaterEntry key={e.id} amount={e.amount} time={e.time} id={e.id} />
+                return <WaterEntry key={e.id} amount={e.amount} time={e.loggedTime} id={e.id} />
             })
                 :
                 <>
-                    <Typography component='p' weight='bold' size={18} className={styles['nowater-text']}>No water was consumed.</Typography>
+                    <p className={styles['nowater-text']}>No water was consumed.</p>
                     <img alt='nowater' className={styles.nowater} src={Nowater} />
                 </>}
         </div>

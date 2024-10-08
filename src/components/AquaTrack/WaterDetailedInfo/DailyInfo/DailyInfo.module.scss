@@ -28,3 +28,14 @@
         gap: 16px;
     }
 }
+
+@media screen and (max-width: 767px) {
+    .day-overview-wrapper {
+        .day-overview {
+            .today {
+                font-size: 20px;
+                line-height: 24px;
+            }
+        }
+    }
+}

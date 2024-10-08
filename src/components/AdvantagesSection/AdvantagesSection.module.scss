@@ -3,45 +3,43 @@
 .container {
     position: relative;
 
+    .background {
+        width: 100%;
+        border-radius: 30px;
+        object-fit: cover;
+        height: 736px;
+    }
+
     .details {
         border-radius: 30px;
-        position: absolute;
-        padding: 11px 16px;
         display: flex;
         align-items: center;
+        padding: 11px 16px;
 
-        &.habit-drive {
-            background-color: $primaryDark;
-            right: 163px;
-            bottom: 108px;
-            gap: 4px;
 
-            .adornment {
-                width: 8px;
-                height: 8px;
-                background-color: $primaryGreen;
-                border-radius: 50%;
-            }
-        }
-
-        &.view-statistics {
-            background-color: $primaryGreen;
-            right: 32px;
-            bottom: 108px;
-        }
-
-        &.rate-setting {
-            background-color: $white;
-            right: 116px;
-            bottom: 64px;
+        span {
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 12px;
+            color: $primaryDark;
         }
 
         &.customers {
+            position: absolute;
             background: $white;
             left: 32px;
             bottom: 132px;
             padding: 10px 20px;
             gap: 4px;
+
+            span {
+                font-size: 15px;
+                line-height: 23px;
+
+                .happy {
+                    color: $primaryGreen
+                }
+            }
 
             .avatar-group {
                 height: 43px;
@@ -67,6 +65,103 @@
 
             span {
                 width: 90px;
+            }
+        }
+    }
+
+    .benefits {
+        position: absolute;
+        right: 32px;
+        bottom: 64px;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+
+        div:first-child {
+            display: flex;
+            gap: 10px;
+        }
+
+        .habit-drive {
+            background-color: $primaryDark;
+            text-wrap: nowrap;
+            gap: 4px;
+
+            span {
+                color: $white;
+            }
+
+            .adornment {
+                width: 8px;
+                height: 8px;
+                background-color: $primaryGreen;
+                border-radius: 50%;
+            }
+        }
+
+        .view-statistics {
+            background-color: $primaryGreen;
+            text-wrap: nowrap;
+        }
+
+        .rate-setting {
+            background-color: $white;
+            width: min-content;
+            text-wrap: nowrap;
+        }
+    }
+}
+
+@media screen and (max-width: 1439px) {
+    .background {
+        height: 446px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        .background {
+            height: 353px;
+        }
+
+        .benefits {
+            right: 16px;
+            bottom: 32px;
+            gap: 4px;
+
+            div:first-child {
+                gap: 4px;
+            }
+
+        }
+
+        .details {
+            padding: 9px 12px;
+
+            span {
+                font-size: 8px;
+                line-height: 8px;
+            }
+
+            &.customers {
+                left: 16px;
+                bottom: 96px;
+                padding: 10px 14px;
+
+                .avatar-group {
+                    height: 28px;
+
+                    .avatar {
+                        width: 28px;
+                        margin-left: -12px;
+                    }
+                }
+
+                span {
+                    width: 67px;
+                    font-size: 12px;
+                    line-height: 14px;
+                }
             }
         }
     }

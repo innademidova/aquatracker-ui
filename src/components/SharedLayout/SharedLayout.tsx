@@ -17,7 +17,7 @@ interface SharedLayoutExtensions {
 const SharedLayout: FC<PropsWithChildren<SharedLayoutProps>> & SharedLayoutExtensions = ({ className, children }) => {
 
 
-    return <div className={cn(styles.container, className)}>
+    return <div className={cn(styles['layout-container'], className)}>
         {children}
     </div>
 }

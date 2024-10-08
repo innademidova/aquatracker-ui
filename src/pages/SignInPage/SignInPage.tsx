@@ -7,7 +7,7 @@ const SignInPage = () => {
     <SharedLayout.LeftSection>
         <SignInForm />
     </SharedLayout.LeftSection>
-    <SharedLayout.RightSection>
+    <SharedLayout.RightSection isVisible={false}>
         <AdvantagesSection />
     </SharedLayout.RightSection>
 </SharedLayout>

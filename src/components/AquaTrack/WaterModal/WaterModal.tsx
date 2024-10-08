@@ -5,7 +5,7 @@ import Input from '../../Shared/Input/Input';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { useAddWaterMutation, useGetDaiLyWaterConsumptionQuery } from '@/app/waterApi';
+import { useAddWaterMutation, useGetDaiLyWaterConsumptionQuery, useUpdateWaterEntryMutation } from '@/app/waterApi';
 import { getCurrentTime } from '@/utils/dateHelper';
 import { useAppSelector } from '@/app/hooks';
 import { selectedDate } from '@/features/date/dateSlice';
@@ -13,11 +13,14 @@ import Typography from 'components/Shared/Typography/Typography';
 
 interface WaterModalProps {
     isEditing?: boolean;
+    loggedTime?: string;
+    entryId?: number;
+    entryAmount?: number;
     onSubmitSuccess: () => void;
 }
 
 interface IFormInput {
-    time: string;
+    time?: string;
     amount: number;
 }
 
@@ -26,23 +29,34 @@ const validationSchema = Yup.object().shape({
     amount: Yup.number().required('Amount is required'),
 });
 
-const WaterModal: React.FC<WaterModalProps> = ({ isEditing = false, onSubmitSuccess }) => {
+const validationSchemaEditing = Yup.object().shape({
+    amount: Yup.number().required('Amount is required'),
+});
+
+const WaterModal: React.FC<WaterModalProps> = ({ isEditing = false, onSubmitSuccess, loggedTime, entryId, entryAmount }) => {
     const date = useAppSelector(selectedDate);
     const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
-        resolver: yupResolver(validationSchema),
+        resolver: yupResolver(isEditing ? validationSchemaEditing : validationSchema),
     });
-    const [amount, setAmount] = useState(50);
+    const [amount, setAmount] = useState(entryAmount || 50);
     const [addWater] = useAddWaterMutation();
+    const [updateWaterEntry] = useUpdateWaterEntryMutation();
     const { refetch } = useGetDaiLyWaterConsumptionQuery(date);
 
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         try {
-            console.log(amount);
-            await addWater({
-                amount,
-                date,
-                time: data.time
-            }).unwrap();
+            if (isEditing) {
+                var test = { id: entryId!, amount }
+                console.log(test)
+                await updateWaterEntry({ id: entryId!, amount }).unwrap();
+            }
+            else {
+                await addWater({
+                    amount,
+                    date,
+                    time: data.time!
+                }).unwrap();
+            }
             refetch();
             onSubmitSuccess();
         } catch (err) {
@@ -78,7 +92,7 @@ const WaterModal: React.FC<WaterModalProps> = ({ isEditing = false, onSubmitSucc
                         <Typography component='span' size={16}>Amount of water:</Typography>
                         <div className={styles['add-water-buttons']}>
                             <Button type="button" onClick={handleDecrease} icon="Minus" className={styles['icon-btn']} variant="outlined" />
-                            <div className={styles.amount}><Typography component="span" size={15} weight='bold' color='white'>{amount || 0} ml</Typography></div>
+                            <div className={styles.amount}><Typography component="span" size={15} weight='bold' color='white'>{amount} ml</Typography></div>
                             <Button type="button" onClick={handleIncrease} icon="Plus" className={styles['icon-btn']} variant="outlined" />
                         </div>
                     </div>
@@ -86,7 +100,8 @@ const WaterModal: React.FC<WaterModalProps> = ({ isEditing = false, onSubmitSucc
                         {...register('time')}
                         id="time"
                         name="time"
-                        defaultValue={getCurrentTime()}
+                        defaultValue={isEditing ? loggedTime : getCurrentTime()}
+                        disabled={isEditing}
                         autoFocus
                         isError={errors.time}
                         errorMessage={errors.time?.message}
