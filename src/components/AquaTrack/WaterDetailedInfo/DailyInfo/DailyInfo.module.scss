@@ -1,41 +1,41 @@
-@use '../../../styles/variables.scss' as *;
+@use '../../../../app/styles/variables' as *;
 
 .day-overview-wrapper {
-    width: 100%;
-    height: 174px;
+  width: 100%;
+  height: 174px;
 
-    .day-overview {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 24px;
+  .day-overview {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
 
-        .today {
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 32px;
-            color: $primaryDark;
-            height: fit-content;
-        }
-
-        button {
-            height: fit-content;
-        }
+    .today {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 32px;
+      color: $primaryDark;
+      height: fit-content;
     }
 
-    .water-entries {
-        margin-bottom: 24px;
-        display: flex;
-        gap: 16px;
+    button {
+      height: fit-content;
     }
+  }
+
+  .water-entries {
+    margin-bottom: 24px;
+    display: flex;
+    gap: 16px;
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .day-overview-wrapper {
-        .day-overview {
-            .today {
-                font-size: 20px;
-                line-height: 24px;
-            }
-        }
+  .day-overview-wrapper {
+    .day-overview {
+      .today {
+        font-size: 20px;
+        line-height: 24px;
+      }
     }
+  }
 }

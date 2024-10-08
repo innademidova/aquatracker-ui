@@ -1,47 +1,46 @@
-@use '../../../styles/variables.scss' as *;
+@use '../../../../app/styles/variables' as *;
 
 .wrapper {
-    top: 157px;
-    left: 64px;
-    padding: 14px 18px;
-    border-radius: 15px;
-    background-color: #FFFFFF;
-    box-sizing: border-box;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: 14px 18px;
+  top: 157px;
+  left: 64px;
+  padding: 14px 18px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 18px;
 
-    .goal {
-        font-size: 15px;
-        font-weight: 700;
-        line-height: 23px;
-        color: $primaryDark;
-    }
+  .goal {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 23px;
+    color: $primaryDark;
+  }
 
-    .description {
-        font-size: 12px;
-        line-height: 23px;
-        color: $secondaryDark60
-    }
+  .description {
+    font-size: 12px;
+    line-height: 23px;
+    color: $secondaryDark60;
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .wrapper {
-        padding: 12px;
-        gap: 6px;
-        left: 16px;
-        top: 122px;
+  .wrapper {
+    padding: 12px;
+    gap: 6px;
+    left: 16px;
+    top: 122px;
 
-        .goal {
-            font-size: 14px;
-            line-height: 14px;
-        }
-
-        .description {
-            font-size: 10px;
-            line-height: 10px;
-        }
+    .goal {
+      font-size: 14px;
+      line-height: 14px;
     }
+
+    .description {
+      font-size: 10px;
+      line-height: 10px;
+    }
+  }
 }

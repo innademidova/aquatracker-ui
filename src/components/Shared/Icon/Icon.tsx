@@ -1,5 +1,6 @@
-import React from 'react';
-import * as Icons from '../../assets/icons';
+import * as Icons from "../../../assets/icons";
+import React from "react";
+
 interface IconProps {
   glyph: keyof typeof Icons;
   className?: string;
@@ -7,7 +8,12 @@ interface IconProps {
   height?: number;
 }
 
-const Icon: React.FC<IconProps> = ({ glyph, className, width = 24, height = 24 }) => {
+const Icon: React.FC<IconProps> = ({
+  glyph,
+  className,
+  width = 24,
+  height = 24,
+}) => {
   const SelectedIcon = Icons[glyph as keyof typeof Icons];
 
   if (!SelectedIcon) {

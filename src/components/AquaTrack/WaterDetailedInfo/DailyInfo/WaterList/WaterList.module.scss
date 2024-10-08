@@ -1,62 +1,61 @@
-@use '../../../../styles/variables.scss' as *;
+@use '../../../../../app/styles/variables' as *;
 
 .water-entries {
-    margin-bottom: 24px;
-    display: inline-flex;
-    gap: 16px;
+  margin-bottom: 24px;
+  display: inline-flex;
+  gap: 16px;
 
-    .nowater {
-        position: absolute;
-        top: 21%;
-        left: 52%;
-        transform: translate(-50%, -50%);
-        width: 36%;
-    }
+  .nowater {
+    position: absolute;
+    top: 21%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    width: 36%;
+  }
 
-    .nowater-text {
-        position: absolute;
-        top: 36%;
-        font-size: 18px;
-        font-weight: 700;
-        color: $primaryDark;
-    }
+  .nowater-text {
+    position: absolute;
+    top: 36%;
+    font-size: 18px;
+    font-weight: 700;
+    color: $primaryDark;
+  }
 }
 
 .scroll-container {
-    max-width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
 
-    &::-webkit-scrollbar-thumb {
-        width: 235px;
-        background-color: $primaryDark;
-        border-radius: 9px;
-    }
+  &::-webkit-scrollbar-thumb {
+    width: 235px;
+    background-color: $primaryDark;
+    border-radius: 9px;
+  }
 
-    &::-webkit-scrollbar {
-        height: 8px;
-        border-radius: 9px;
-    }
+  &::-webkit-scrollbar {
+    height: 8px;
+    border-radius: 9px;
+  }
 
-    &::-webkit-scrollbar-track {
-        background-color: $white;
-        border-radius: 9px;
-    }
+  &::-webkit-scrollbar-track {
+    background-color: $white;
+    border-radius: 9px;
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .water-entries {
-        gap: 8px;
+  .water-entries {
+    gap: 8px;
 
-        .nowater {
-            width: 26%;
-            top: 36%;
-            left: 75%;
-        }
-
-        .nowater-text {
-            font-size: 14px;
-        }
+    .nowater {
+      width: 26%;
+      top: 36%;
+      left: 75%;
     }
 
+    .nowater-text {
+      font-size: 14px;
+    }
+  }
 }

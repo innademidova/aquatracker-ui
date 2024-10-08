@@ -1,9 +1,9 @@
-import { ReactNode } from 'react';
-import Modal from 'react-modal';
-import Icon from '../Icon/Icon';
-import styles from './ReactModal.module.scss';
+import styles from "./ReactModal.module.scss";
+import Icon from "components/Shared/Icon/Icon";
+import { ReactNode } from "react";
+import Modal from "react-modal";
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 interface ModalProps {
   children: ReactNode;
@@ -11,7 +11,11 @@ interface ModalProps {
   onRequestClose: () => void;
 }
 
-const ReactModal: React.FC<ModalProps> = ({ children, isOpen, onRequestClose }) => {
+const ReactModal: React.FC<ModalProps> = ({
+  children,
+  isOpen,
+  onRequestClose,
+}) => {
   return (
     <Modal
       isOpen={isOpen}
@@ -19,13 +23,13 @@ const ReactModal: React.FC<ModalProps> = ({ children, isOpen, onRequestClose }) 
       className={styles.modal}
       style={{
         overlay: {
-          backgroundColor: 'rgba(0, 0, 0, 0.75)',
+          backgroundColor: "rgba(0, 0, 0, 0.75)",
         },
       }}
     >
       {children}
-      <button className={styles['close-button']} onClick={onRequestClose}>
-        <Icon glyph='Close' />
+      <button className={styles["close-button"]} onClick={onRequestClose}>
+        <Icon glyph="Close" />
       </button>
     </Modal>
   );

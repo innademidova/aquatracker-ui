@@ -1,16 +1,18 @@
-import AdvantagesSection from "components/AdvantagesSection/AdvantagesSection"
-import SignInForm from "components/AuthForm/SignInForm"
-import SharedLayout from "components/SharedLayout/SharedLayout"
+import AdvantagesSection from "components/AdvantagesSection/AdvantagesSection";
+import SignInForm from "components/AuthForm/SignInForm";
+import SharedLayout from "components/SharedLayout/SharedLayout";
 
 const SignInPage = () => {
-    return <SharedLayout>
-    <SharedLayout.LeftSection>
+  return (
+    <SharedLayout>
+      <SharedLayout.LeftSection>
         <SignInForm />
-    </SharedLayout.LeftSection>
-    <SharedLayout.RightSection isVisible={false}>
+      </SharedLayout.LeftSection>
+      <SharedLayout.RightSection isVisible={false}>
         <AdvantagesSection />
-    </SharedLayout.RightSection>
-</SharedLayout>
-}
+      </SharedLayout.RightSection>
+    </SharedLayout>
+  );
+};
 
 export default SignInPage;

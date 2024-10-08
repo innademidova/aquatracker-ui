@@ -1,20 +1,20 @@
-@use '../../styles/variables.scss' as *;
+@use '../../../app/styles/variables' as *;
 
 .logo {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 24px;
-    position: absolute;
-    top: 32px;
-    left: 32px;
-    color: $primaryDark;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  color: $primaryDark;
 }
 
 @media screen and (max-width: 767px) {
-    .logo {
-        font-size: 18px;
-        line-height: 20px;
-        left: 16px;
-        top: 24px;
-    }
+  .logo {
+    font-size: 18px;
+    line-height: 20px;
+    left: 16px;
+    top: 24px;
+  }
 }

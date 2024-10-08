@@ -1,77 +1,77 @@
-@use '../../../../styles/variables.scss' as *;
+@use '../../../../../app/styles/variables' as *;
 
 .container {
-    padding: 20px;
-    border-radius: 15px;
-    background-color: $white;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: $white;
 
-    .wrapper {
-        display: flex;
-        gap: 20px;
+  .wrapper {
+    display: flex;
+    gap: 20px;
 
-        .glass {
-            width: 44px;
-            height: 45px;
-        }
-
-        .details {
-            display: flex;
-            flex-direction: column;
-
-            .water-amount {
-                font-size: 15px;
-                font-weight: 700;
-                color: $primaryDark
-            }
-
-            .time {
-                font-size: 12px;
-                color: $secondaryDark60;
-            }
-        }
-
-        .icon-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-
-            .icon {
-                width: 16px;
-                height: 16px;
-            }
-        }
+    .glass {
+      width: 44px;
+      height: 45px;
     }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+
+      .water-amount {
+        font-size: 15px;
+        font-weight: 700;
+        color: $primaryDark;
+      }
+
+      .time {
+        font-size: 12px;
+        color: $secondaryDark60;
+      }
+    }
+
+    .icon-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+
+      .icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .container {
-        padding: 18px 14px;
+  .container {
+    padding: 18px 14px;
 
-        .wrapper {
-            align-items: center;
-            gap: 10px;
+    .wrapper {
+      align-items: center;
+      gap: 10px;
 
-            .glass {
-                width: 38px;
-                height: 38px;
-            }
+      .glass {
+        width: 38px;
+        height: 38px;
+      }
 
-            .details {
-                gap: 6px;
+      .details {
+        gap: 6px;
 
-                .water-amount {
-                    font-size: 14px;
-                    line-height: 14px;
-                }
-
-                .time {
-                    line-height: 12px;
-                }
-            }
-
-            .icon-buttons {
-                gap: 8px;
-            }
+        .water-amount {
+          font-size: 14px;
+          line-height: 14px;
         }
+
+        .time {
+          line-height: 12px;
+        }
+      }
+
+      .icon-buttons {
+        gap: 8px;
+      }
     }
+  }
 }

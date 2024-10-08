@@ -1,107 +1,105 @@
-@use '../../styles/variables.scss' as *;
+@use '../../../app/styles/variables' as *;
 
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 438px;
+
+  form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 24px;
-    width: 438px;
+  }
 
-    form {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
+  span {
+    color: $primaryDark;
+  }
+
+  p {
+    color: $secondaryDark;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 32px;
+    color: $primaryDark;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .add-water-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+
+    .icon-btn {
+      border-width: 1.5px;
+      width: 43px;
+      height: 43px;
+
+      &:first-child {
+        svg {
+          width: 15px;
+        }
+      }
     }
 
-    span {
-        color: $primaryDark;
-    }
+    .amount {
+      background: $primaryDark;
+      padding: 11px 20px;
+      border-radius: 30px;
 
-    p {
-        color: $secondaryDark;
-    }
-
-    .title {
-        font-size: 28px;
-        line-height: 32px;
-        color: $primaryDark;
-    }
-
-    .subtitle {
-        font-size: 18px;
+      span {
+        font-weight: 15px;
+        color: $white;
         font-weight: 700;
-        display: block;
-        margin-bottom: 20px;
+      }
     }
+  }
 
-    .add-water-buttons {
-        display: flex;
-        gap: 8px;
-        margin-top: 8px;
-        margin-bottom: 16px;
-
-        .icon-btn {
-            border-width: 1.5px;
-            width: 43px;
-            height: 43px;
-
-            &:first-child {
-                svg {
-                    width: 15px;
-                }
-            }
-        }
-
-        .amount {
-            background: $primaryDark;
-            padding: 11px 20px;
-            border-radius: 30px;
-
-            span {
-                font-weight: 15px;
-                color: $white;
-                font-weight: 700;
-            }
-
-            ;
-        }
-    }
-
-    .save-button {
-        width: 141px;
-    }
+  .save-button {
+    width: 141px;
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .container {
-        width: 303px;
+  .container {
+    width: 303px;
 
-        p {
-            font-size: 14px;
-            line-height: 18px;
-        }
-
-        .title {
-            font-size: 20px;
-            line-height: 24px;
-        }
-
-        .subtitle {
-            font-size: 16px;
-            line-height: 20px;
-        }
-
-        .add-water-buttons {
-            .amount {
-                span {
-                    font-size: 14px;
-                    line-height: 18px;
-                }
-            }
-        }
-
-        .save-button {
-            width: 116px;
-        }
+    p {
+      font-size: 14px;
+      line-height: 18px;
     }
+
+    .title {
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .add-water-buttons {
+      .amount {
+        span {
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+    }
+
+    .save-button {
+      width: 116px;
+    }
+  }
 }

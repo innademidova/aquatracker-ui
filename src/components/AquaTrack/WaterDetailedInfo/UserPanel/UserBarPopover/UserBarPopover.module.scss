@@ -1,19 +1,19 @@
-@use '../../../../styles/variables.scss' as *;
+@use '../../../../../app/styles/variables' as *;
 
 .popover-wrapper {
-    width: 100%;
-    top: 64px;
-    position: absolute;
-    background-color: $white;
-    border-radius: 15px;
-    padding: 14px 20px;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  top: 64px;
+  position: absolute;
+  background-color: $white;
+  border-radius: 15px;
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-@media screen and (max-width:767px) {
-    .popover-wrapper {
-        gap: 8px;
-        top: 54px;
-    }
+@media screen and (max-width: 767px) {
+  .popover-wrapper {
+    gap: 8px;
+    top: 54px;
+  }
 }

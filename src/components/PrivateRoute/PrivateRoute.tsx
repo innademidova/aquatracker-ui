@@ -1,6 +1,6 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-import { useGetCurrentUserQuery } from '@/app/userApi';
+import { useGetCurrentUserQuery } from "@/app/api/userApi.ts";
+import React from "react";
+import { Navigate } from "react-router-dom";
 
 interface PrivateRouteProps {
   element: React.ComponentType;

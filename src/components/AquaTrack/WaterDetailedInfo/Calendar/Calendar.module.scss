@@ -1,194 +1,190 @@
-@use '../../../styles/variables.scss' as *;
+@use '../../../../app/styles/variables' as *;
 
 .container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding-top: 40px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 40px;
+  width: 100%;
 }
 
 button {
-    border: none;
+  border: none;
 }
 
 .calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .calendar-title {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 32px;
+    color: $primaryDark;
+  }
+
+  .calendar-controls {
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
     align-items: center;
 
-    .calendar-title {
-        font-size: 28px;
-        font-weight: 700;
-        line-height: 32px;
-        color: $primaryDark;
-    }
+    .month-navigation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    .calendar-controls {
+      .navigation-button {
         display: flex;
-        gap: 20px;
-        align-items: center;
+        padding: 0;
+      }
 
-        .month-navigation {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            .navigation-button {
-                display: flex;
-                padding: 0;
-            }
-
-            .current-month {
-                width: 140px;
-                font-size: 16px;
-                font-weight: 700;
-                text-align: center;
-                color: $primaryDark;
-
-            }
-        }
-
-        .statistic-button {
-            padding: 0;
-
-            svg {
-                width: 24px;
-                height: 24px;
-                opacity: 40%;
-            }
-
-            &.is-active {
-                svg {
-                    opacity: 100%;
-                }
-            }
-
-            &:hover {
-                svg {
-                    opacity: 100%;
-                }
-            }
-        }
+      .current-month {
+        width: 140px;
+        font-size: 16px;
+        font-weight: 700;
+        text-align: center;
+        color: $primaryDark;
+      }
     }
+
+    .statistic-button {
+      padding: 0;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        opacity: 40%;
+      }
+
+      &.is-active {
+        svg {
+          opacity: 100%;
+        }
+      }
+
+      &:hover {
+        svg {
+          opacity: 100%;
+        }
+      }
+    }
+  }
 }
 
 .calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    column-gap: 43px;
-    row-gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  column-gap: 43px;
+  row-gap: 15px;
 
-    .day-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        cursor: pointer;
+  .day-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
 
-        .day {
-            width: 38px;
-            height: 38px;
-            border-radius: 30px;
-            background-color: $white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 24px;
-            letter-spacing: -0.01em;
-            color: $primaryDark;
+    .day {
+      width: 38px;
+      height: 38px;
+      border-radius: 30px;
+      background-color: $white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: -0.01em;
+      color: $primaryDark;
 
-            &.insufficiently {
-                background-color: $primaryDark20;
-            }
+      &.insufficiently {
+        background-color: $primaryDark20;
+      }
 
-            &.isSelected {
-                background-color: $primaryDark;
-                color: $primaryGreen;
-            }
-        }
-
-        .day-progress {
-            font-size: 12px;
-            color: $secondaryDark60;
-            text-align: center;
-            line-height: 23px;
-        }
-
-        &.disabled {
-            .day {
-                opacity: 40%;
-            } 
-        }
+      &.isSelected {
+        background-color: $primaryDark;
+        color: $primaryGreen;
+      }
     }
+
+    .day-progress {
+      font-size: 12px;
+      color: $secondaryDark60;
+      text-align: center;
+      line-height: 23px;
+    }
+
+    &.disabled {
+      .day {
+        opacity: 40%;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .conrainer {
-        height: 410px;
+  .conrainer {
+    height: 410px;
+  }
+
+  .calendar-header {
+    .calendar-controls {
+      gap: 16px;
+
+      .navigation-button {
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      .month-navigation {
+        .current-month {
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+
+      .statistic-button {
+        padding: 0;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
     }
 
-    .calendar-header {
-        .calendar-controls {
-            gap: 16px;
-
-            .navigation-button {
-                svg {
-                    width: 18px;
-                    height: 18px;
-                }
-            }
-
-            .month-navigation {
-                .current-month {
-                    font-size: 14px;
-                    line-height: 18px;
-                }
-            }
-
-            .statistic-button {
-                padding: 0;
-
-                svg {
-                    width: 20px;
-                    height: 20px;
-                }
-            }
-        }
-
-        .calendar-title {
-            font-size: 20px;
-            line-height: 24px;
-        }
-
-
+    .calendar-title {
+      font-size: 20px;
+      line-height: 24px;
     }
+  }
 
-    .calendar-grid-wrapper {
-        height: 300px;
+  .calendar-grid-wrapper {
+    height: 300px;
 
-        .calendar-grid {
-            row-gap: 20px;
-            column-gap: 18px;
-            grid-template-columns: repeat(7, 1fr);
+    .calendar-grid {
+      row-gap: 20px;
+      column-gap: 18px;
+      grid-template-columns: repeat(7, 1fr);
 
+      .day-wrapper {
+        gap: 6px;
 
-            .day-wrapper {
-                gap: 6px;
-
-                .day {
-                    width: 28px;
-                    height: 28px;
-                    font-size: 14px;
-                    line-height: 18px;
-                }
-
-                .day-progress {
-                    font-size: 10px;
-                    line-height: 10px;
-                }
-            }
+        .day {
+          width: 28px;
+          height: 28px;
+          font-size: 14px;
+          line-height: 18px;
         }
+
+        .day-progress {
+          font-size: 10px;
+          line-height: 10px;
+        }
+      }
     }
+  }
 }

@@ -1,199 +1,195 @@
-@use '../../styles/variables.scss' as *;
+@use '../../../app/styles/variables' as *;
 
 .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 30px;
-    cursor: pointer;
-    width: 100%;
-    height: 60px;
-    gap: 10px;
-    border: none;
-    padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 100%;
+  height: 60px;
+  gap: 10px;
+  border: none;
+  padding: 0;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  span {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+
+  &--primary {
+    background-color: $primaryGreen;
+
+    .btn-text {
+      color: $primaryDark;
+    }
+
+    &:hover {
+      background-color: $secondaryGreen;
+    }
 
     &:disabled {
-        cursor: not-allowed;
+      background-color: $disabledBackground;
+
+      .btn-text {
+        color: $disabledText;
+      }
+    }
+  }
+
+  &--secondary {
+    background-color: $primaryDark;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      .btn-text {
+        color: $primaryGreen;
+      }
+
+      path {
+        fill: $primaryGreen;
+        stroke: $primaryGreen;
+      }
+    }
+
+    .btn-text {
+      color: $white;
+    }
+  }
+
+  &--outlined {
+    background-color: transparent;
+    border: 1px solid $primaryDark;
+
+    .btn-text {
+      color: $primaryDark;
+    }
+
+    path {
+      stroke: $primaryDark;
+    }
+
+    &:hover {
+      border: 1px solid $primaryGreen;
+
+      .btn-text {
+        color: $primaryGreen;
+      }
+
+      path {
+        stroke: $primaryGreen;
+      }
+    }
+  }
+
+  &--simple {
+    background-color: transparent;
+    justify-content: flex-start;
+    gap: 8px;
+    height: fit-content;
+
+    .btn-text {
+      font-size: 15px;
+      color: $primaryDark40;
     }
 
     svg {
-        width: 16px;
-        height: 16px;
+      path {
+        stroke: $primaryDark40;
+      }
     }
 
-    span {
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 24px;
-        letter-spacing: -0.01em;
-        text-align: center;
+    &:hover {
+      .btn-text {
+        color: $primaryDark;
+      }
+
+      path {
+        stroke: $primaryDark;
+      }
+    }
+  }
+
+  &--icon {
+    background-color: transparent;
+    height: fit-content;
+  }
+
+  &--iconWithText {
+    .btn-text {
+      color: $primaryDark;
     }
 
-    &--primary {
-        background-color: $primaryGreen;
+    svg {
+      padding: 6px;
+      width: 30px;
+      height: 30px;
+      background-color: $primaryGreen;
+      border-radius: 50%;
 
-        .btn-text {
-            color: $primaryDark;
-        }
-
-        &:hover {
-            background-color: $secondaryGreen;
-        }
-
-        &:disabled {
-            background-color: $disabledBackground;
-
-            .btn-text {
-                color: $disabledText;
-            }
-        }
+      path {
+        stroke: $primaryDark;
+      }
     }
 
-    &--secondary {
+    &:hover {
+      svg {
         background-color: $primaryDark;
 
-        svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        &:hover {
-            .btn-text {
-                color: $primaryGreen;
-            }
-
-            path {
-                fill: $primaryGreen;
-                stroke: $primaryGreen;
-            }
-        }
-
-        .btn-text {
-            color: $white;
-        }
-    }
-
-    &--outlined {
-        background-color: transparent;
-        border: 1px solid $primaryDark;
-
-        .btn-text {
-            color: $primaryDark;
-        }
-
         path {
-            stroke: $primaryDark;
+          stroke: $white;
         }
-
-        &:hover {
-            border: 1px solid $primaryGreen;
-
-            .btn-text {
-                color: $primaryGreen;
-            }
-
-            path {
-                stroke: $primaryGreen;
-            }
-        }
+      }
     }
-
-    &--simple {
-        background-color: transparent;
-        justify-content: flex-start;
-        gap: 8px;
-        height: fit-content;
-
-        .btn-text {
-            font-size: 15px;
-            color: $primaryDark40;
-        }
-
-        svg {
-            path {
-                stroke: $primaryDark40;
-            }
-        }
-
-        &:hover {
-            .btn-text {
-                color: $primaryDark;
-            }
-
-            path {
-                stroke: $primaryDark;
-            }
-        }
-    }
-
-    &--icon {
-        background-color: transparent;
-        height: fit-content;
-    }
-
-    &--iconWithText {
-
-        .btn-text {
-            color: $primaryDark;
-        }
-
-        svg {
-            padding: 6px;
-            width: 30px;
-            height: 30px;
-            background-color: $primaryGreen;
-            border-radius: 50%;
-
-            path {
-                stroke: $primaryDark;
-            }
-        }
-
-        &:hover {
-            svg {
-                background-color: $primaryDark;
-
-                path {
-                    stroke: $white
-                }
-            }
-        }
-
-    }
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .btn {
-        height: 46px;
+  .btn {
+    height: 46px;
 
-        &--secondary {
-            svg {
-                width: 16px;
-                height: 16px;
-            }
-
-        }
-
-        span {
-            font-size: 14px;
-        }
-
-        &--icon {
-            height: fit-content;
-
-            svg {
-                width: 14px;
-                height: 14px;
-            }
-        }
-
-        &--simple { 
-            height: fit-content;  
-            .btn-text {
-                font-size: 14px;
-                line-height: 18px;
-            }
-        }
-    
+    &--secondary {
+      svg {
+        width: 16px;
+        height: 16px;
+      }
     }
+
+    span {
+      font-size: 14px;
+    }
+
+    &--icon {
+      height: fit-content;
+
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    &--simple {
+      height: fit-content;
+      .btn-text {
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+  }
 }

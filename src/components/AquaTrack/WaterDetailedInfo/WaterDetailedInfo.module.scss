@@ -1,18 +1,17 @@
 .container {
-    background: #F0EFF4;
-    height: 736px;
-    border-radius: 30px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    padding: 32px;
+  background: #f0eff4;
+  height: 736px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  padding: 32px;
 }
 
 @media screen and (max-width: 767px) {
-    .container {
-        padding: 40px 20px;
-        height: fit-content;
-    }
+  .container {
+    padding: 40px 20px;
+    height: fit-content;
+  }
 }
