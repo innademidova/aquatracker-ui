@@ -9,7 +9,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
   iconStart?: keyof typeof Icons;
   iconEnd?: keyof typeof Icons;
-  onIconClick?: () => void;
+  onIconClick?: VoidFunction;
   label?: string;
   variant?: "bold" | "regular";
   labelColor?: "primary" | "secondary";
@@ -29,7 +29,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       labelColor = "primary",
       ...props
     },
-    ref
+    ref,
   ) => {
     const inputClass = `
         ${styles.input}     
@@ -76,7 +76,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
 export default Input;

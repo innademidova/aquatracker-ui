@@ -15,7 +15,7 @@ export const store = configureStore({
     getDefaultMiddleware().concat(
       authApi.middleware,
       waterApi.middleware,
-      userApi.middleware
+      userApi.middleware,
     ),
 });
 

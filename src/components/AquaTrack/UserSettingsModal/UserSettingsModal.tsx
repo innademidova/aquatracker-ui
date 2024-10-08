@@ -21,7 +21,7 @@ interface UserSettingsFormData {
 }
 
 interface UserSettingsModalProps {
-  onSubmitSuccess: () => void;
+  onSubmitSuccess: VoidFunction;
 }
 
 const UserSettingsModal: React.FC<UserSettingsModalProps> = ({
@@ -39,7 +39,6 @@ const UserSettingsModal: React.FC<UserSettingsModalProps> = ({
   const [updateProfile] = useUpdateProfileMutation();
 
   const onSubmit: SubmitHandler<UserSettingsFormData> = async (data) => {
-    console.log("data", data);
     try {
       await updateProfile(data).unwrap();
       onSubmitSuccess();

@@ -33,7 +33,7 @@ const WaterEntry: FC<WaterEntryProps> = ({ amount, id, time }) => {
       console.error("Something went wrong", err);
     }
   };
-  console.log(time);
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>

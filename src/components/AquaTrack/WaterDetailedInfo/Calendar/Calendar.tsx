@@ -97,7 +97,7 @@ const Calendar = () => {
                   getPercentOfDailyConsumedWater(
                     currentUser.dailyWaterGoal,
                     fullDate,
-                    monthlyWaterConsumption
+                    monthlyWaterConsumption,
                   )) ||
                 0;
 

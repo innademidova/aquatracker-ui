@@ -8,7 +8,7 @@ Modal.setAppElement("#root");
 interface ModalProps {
   children: ReactNode;
   isOpen: boolean;
-  onRequestClose: () => void;
+  onRequestClose: VoidFunction;
 }
 
 const ReactModal: React.FC<ModalProps> = ({

@@ -28,7 +28,7 @@ const baseQueryWithReauth: BaseQueryFn<
     const refreshResult = await baseQuery(
       { url: "Auth/refresh-token", method: "POST" },
       api,
-      extraOptions
+      extraOptions,
     );
 
     if (refreshResult.data) {
@@ -69,8 +69,5 @@ export const authApi = createApi({
   }),
 });
 
-export const {
-  useLoginMutation,
-  useRefreshMutation,
-  useLogoutMutation,
-} = authApi;
+export const { useLoginMutation, useRefreshMutation, useLogoutMutation } =
+  authApi;

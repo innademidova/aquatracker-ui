@@ -55,9 +55,9 @@ const WaterConsumptionChart: FC<WaterConsumptionChartProps> = ({
           amount:
             getDailyConsumptionAmount(
               getFullDate(currentDate, el),
-              monthlyWaterConsumption
+              monthlyWaterConsumption,
             ) / 1000,
-        } as DataPoint)
+        }) as DataPoint,
     );
   };
 

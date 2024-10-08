@@ -2,7 +2,7 @@ import { WaterConsumptionResponse } from "@/app/api/waterApi.ts";
 
 export const getPercentOfConsumedWater = (
   goal: number,
-  dailyConsumption: number = 0
+  dailyConsumption: number = 0,
 ): number => {
   if (goal <= 0) {
     return 0;
@@ -13,7 +13,7 @@ export const getPercentOfConsumedWater = (
 
 export const getDailyConsumptionAmount = (
   date: string,
-  monthlyConsumption: WaterConsumptionResponse[] = []
+  monthlyConsumption: WaterConsumptionResponse[] = [],
 ) => {
   return monthlyConsumption
     .filter((entry) => entry.date === date)
@@ -22,7 +22,7 @@ export const getDailyConsumptionAmount = (
 
 export const getDailyConsumptionInLiter = (
   date: string,
-  monthlyConsumption: WaterConsumptionResponse[] = []
+  monthlyConsumption: WaterConsumptionResponse[] = [],
 ) => {
   const dailyConsumption = getDailyConsumptionAmount(date, monthlyConsumption);
   return Math.round(dailyConsumption * 0.001);
@@ -31,7 +31,7 @@ export const getDailyConsumptionInLiter = (
 export const getPercentOfDailyConsumedWater = (
   goal: number,
   date: string,
-  monthlyConsumption: WaterConsumptionResponse[] = []
+  monthlyConsumption: WaterConsumptionResponse[] = [],
 ) => {
   var dailyConsumption = getDailyConsumptionAmount(date, monthlyConsumption);
   return getPercentOfConsumedWater(goal, dailyConsumption);

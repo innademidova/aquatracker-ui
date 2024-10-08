@@ -55,7 +55,7 @@ export const waterApi = createApi({
         query: (date: string) => ({
           url: `Water/daily-consumption?date=${date}`,
         }),
-      }
+      },
     ),
     getMonthlyWaterConsumption: builder.query<
       WaterConsumptionResponse[],

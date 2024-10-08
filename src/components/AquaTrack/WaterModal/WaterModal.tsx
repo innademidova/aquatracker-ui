@@ -22,7 +22,7 @@ interface WaterModalProps {
   loggedTime?: string;
   entryId?: number;
   entryAmount?: number;
-  onSubmitSuccess: () => void;
+  onSubmitSuccess: VoidFunction;
 }
 
 interface IFormInput {
@@ -44,7 +44,7 @@ const WaterModal: React.FC<WaterModalProps> = ({
     formState: { errors },
   } = useForm<IFormInput>({
     resolver: yupResolver(
-      isEditing ? addWaterValidationSchema : editWaterEntryValidationSchema
+      isEditing ? addWaterValidationSchema : editWaterEntryValidationSchema,
     ),
   });
   const [amount, setAmount] = useState(entryAmount || 50);
@@ -55,8 +55,6 @@ const WaterModal: React.FC<WaterModalProps> = ({
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     try {
       if (isEditing) {
-        var test = { id: entryId!, amount };
-        console.log(test);
         await updateWaterEntry({ id: entryId!, amount }).unwrap();
       } else {
         await addWater({

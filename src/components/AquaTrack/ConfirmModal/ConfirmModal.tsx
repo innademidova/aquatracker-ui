@@ -4,9 +4,9 @@ import Button from "components/Shared/Button/Button";
 interface ConfirmModalProps {
   title: string;
   subtitle: string;
-  onConfirm: () => void;
+  onConfirm: VoidFunction;
   confirmButtonText: string;
-  onCancel: () => void;
+  onCancel: VoidFunction;
 }
 const ConfirmModal: React.FC<ConfirmModalProps> = ({
   title,

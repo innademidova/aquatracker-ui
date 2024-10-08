@@ -10,13 +10,12 @@ import cn from "classnames";
 const WaterProgressBar = () => {
   const date = useAppSelector(selectedDate);
   const { data: currentUser } = useGetCurrentUserQuery();
-  const { data: dailyWaterConsumption } = useGetDaiLyWaterConsumptionQuery(
-    date
-  );
+  const { data: dailyWaterConsumption } =
+    useGetDaiLyWaterConsumptionQuery(date);
 
   const amount = dailyWaterConsumption?.reduce(
     (prev, current) => prev + current.amount,
-    0
+    0,
   );
   const percentage =
     currentUser && amount
