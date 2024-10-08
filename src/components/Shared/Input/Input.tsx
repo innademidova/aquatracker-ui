@@ -1,7 +1,7 @@
 import * as Icons from "../../../assets/icons";
 import styles from "./Input.module.scss";
 import Icon from "components/Shared/Icon/Icon";
-import { FC, InputHTMLAttributes, forwardRef } from "react";
+import { InputHTMLAttributes, forwardRef } from "react";
 import { FieldError } from "react-hook-form";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {

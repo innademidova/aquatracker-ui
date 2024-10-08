@@ -33,6 +33,6 @@ export const getPercentOfDailyConsumedWater = (
   date: string,
   monthlyConsumption: WaterConsumptionResponse[] = [],
 ) => {
-  var dailyConsumption = getDailyConsumptionAmount(date, monthlyConsumption);
+  const dailyConsumption = getDailyConsumptionAmount(date, monthlyConsumption);
   return getPercentOfConsumedWater(goal, dailyConsumption);
 };

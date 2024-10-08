@@ -25,17 +25,26 @@ interface WaterConsumptionChartProps {
   monthlyWaterConsumption: WaterConsumptionResponse[] | undefined;
 }
 
-const CustomTooltip: React.FC<any> = ({ active, payload }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="custom-tooltip">
-        <p>{`${payload[0].value} L`}</p>
-      </div>
-    );
+interface TooltipPayload {
+    value: number;
   }
-
-  return null;
-};
+  
+  interface CustomTooltipProps {
+    active?: boolean;
+    payload?: TooltipPayload[];
+  }
+  
+  const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip">
+          <p>{`${payload[0].value} L`}</p>
+        </div>
+      );
+    }
+  
+    return null;
+  };
 
 const WaterConsumptionChart: FC<WaterConsumptionChartProps> = ({
   days,

@@ -7,7 +7,7 @@ import { selectedDate } from "@/features/date/dateSlice";
 
 const WaterList = () => {
   const date = useAppSelector(selectedDate);
-  const { data, error, isLoading } = useGetDaiLyWaterConsumptionQuery(date);
+  const { data } = useGetDaiLyWaterConsumptionQuery(date);
 
   return (
     <div className={styles["scroll-container"]}>

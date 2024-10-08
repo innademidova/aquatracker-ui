@@ -37,7 +37,7 @@ const SignUpForm: React.FC = () => {
       } else {
         setRegisterError("Login or password is incorrect");
       }
-    } catch (err) {
+    } catch {
       setRegisterError("Something went wrong");
     }
   };
@@ -97,7 +97,7 @@ const SignUpForm: React.FC = () => {
               onIconClick={() => setShowRepeatPassword((show) => !show)}
             />
           </div>
-          {/* {registerError && <div className={styles['error-text']}>{registerError}</div>} */}
+          {registerError && <div className={styles['error-text']}>{registerError}</div>}
           <Button
             className={styles["submit-btn"]}
             variant="primary"
