@@ -34,7 +34,10 @@ export const userApi = createApi({
         body: updateUserRequest,
       }),
     }),
+    getUsersCount: builder.query<void, void>({
+      query: () => ({ url: "Users/count" }),
+    }),
   }),
 });
 
-export const { useGetCurrentUserQuery, useUpdateProfileMutation } = userApi;
+export const { useGetCurrentUserQuery, useUpdateProfileMutation, useGetUsersCountQuery } = userApi;

@@ -1,7 +1,7 @@
 import { fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const baseQuery = fetchBaseQuery({
-  baseUrl: "https://aquatrack-api-gkhwf9c9hxehfvfn.northeurope-01.azurewebsites.net/api/",
+  baseUrl: import.meta.env.VITE_API_BASE_URL,
   credentials: "include",
   responseHandler: async (response) => {
     const contentType = response.headers.get("content-type");
